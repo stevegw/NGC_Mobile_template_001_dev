@@ -42,6 +42,9 @@ showIssue = function (message, systemMessage) {
 }
 
 
+
+
+  
 showIntroPopup = function () {
   
   $scope.setWidgetProp("labelProcDescription", "text", SXSLData.title.resources[0].text );
@@ -180,6 +183,19 @@ lookupProcedure = function (wonum) {
 // Exposed Studio Functions
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+$scope.toggleInfo = function () {
+  
+  let state = $scope.getWidgetProp("popupHelp", "visible");
+  // if (state === "visible") {
+  //   $scope.setWidgetProp("popupIntro", "visible" , false);
+  // } else {
+
+  //   $scope.setWidgetProp("popupIntro", "visible" , true);
+  // }
+
+  let result = state === "visible" ? $scope.setWidgetProp("popupIntro", "visible" , false) : $scope.setWidgetProp("popupIntro", "visible" , true)
+  
+}
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -215,7 +231,7 @@ $rootScope.startStep = function (sessionId, stepId , stepTitle , stepDescription
 	sessionId:  sessionId,
 	stepId: stepId,
 	stepTitle: stepTitle,
-    stepDescription: stepDescription
+  stepDescription: stepDescription
 
   };
   
@@ -242,7 +258,8 @@ $rootScope.startStep = function (sessionId, stepId , stepTitle , stepDescription
 
           } else if (startStepData.rows[0].result.includes('failed' )) {
 
-            showIssue("Unexpected StartStep failure ", startStepData.rows[0].result );
+            showIssue("Unexpected StartStep failure Params= " + " sessionId=" + data.config.data.sessionId + " stepId=" + data.config.data.stepId + " stepTitle=" + data.config.data.stepTitle + " stepDescription=" + data.config.data.stepDescription , startStepData.rows[0].result );
+
           }
 
         }
@@ -314,10 +331,15 @@ $rootScope.actionInputDelivered = function ( action) {
   
   
   let actionId = action.id;
+  let stepId = action.step.id;
   let responseArray = action.details.response[action.details.ID];
   let actionName = action.details.title.resources[0].text;
   let actionInstruction = action.instruction;
   let actionDuration = $rootScope.sxslHelper.setActionEndTime(actionId , responseArray[0].time );
+  let inputImage = " ";
+	let inputFileExtension= " ";
+  let actionInput;
+
   responseArray.sort(function(a, b) {
   	return a.time - b.time;
   });
@@ -326,17 +348,37 @@ $rootScope.actionInputDelivered = function ( action) {
   console.log(">>>> response array  "+ responseArray);
   
   // for now get the first response 
+
+  if (responseArray[0].response != undefined &&  responseArray[0].type === "CaptureImage" ) {
+
+    inputImage = responseArray[0].response;
+    actionInput= "";
+    if (responseArray[0].response.startsWith("data:image/png;base64") ) {
+
+      let contentArray = responseArray[0].response.split(",");
+      if (contentArray.length > 1) {
+        inputImage = contentArray[1];
+        inputFileExtension = "png";
+      }
+
+    }
+
+  } else {
+
+    actionInput= responseArray[0].response;
+
+  }
   
   let params = {
-	actionDuration: actionDuration,
-	actionId: actionId,
-	actionInput: responseArray[0].response,
-	inputFileExtension: " ",
-	actionDescription: actionInstruction,
-	sessionId:   $rootScope.sxslHelper.getWorkTrackSessionId(),
-	inputImage: " ",
-	actionName: actionName
-    
+    actionDuration: actionDuration,
+    actionId: actionId,
+    actionInput: actionInput,
+    inputFileExtension: inputFileExtension,
+    actionDescription: actionInstruction,
+    sessionId:   $rootScope.sxslHelper.getWorkTrackSessionId(),
+    inputImage: inputImage,
+    actionName: actionName,
+    stepId: stepId 
   };  
   
   
@@ -363,8 +405,7 @@ $rootScope.actionInputDelivered = function ( action) {
             // all ok 
 
           } else if (saveActionData.rows[0].result.includes('failed' )) {
-
-            showIssue("Unexpected Save action failure ", saveActionData.rows[0].result+ " sessionId=" + sessionId + " actionId=" + actionId + " actionInput=" + actionInput + "  actionName=" + actionName );
+            showIssue("Unexpected Save action failure Params= " + " sessionId=" + data.config.data.sessionId + " stepId=" + data.config.data.stepId + + " actionId=" + data.config.data.actionId + " actionInput=" + data.config.data.actionInput + "  actionName=" + data.config.data.actionName, saveActionData.rows[0].result );
           }
 
         }
@@ -468,7 +509,7 @@ $rootScope.endStep = function (sessionId, stepId, acknowledgement) {
               if (data.statusText === "OK" && !endStepData.rows[0].result.includes('failed')) {
                 // all ok 
               } else if (endStepData.rows[0].result.includes('failed')) {
-                showIssue("Unexpected end step failure ", endStepData.rows[0].result + " stepId="+ stepId + " WorkOrderNumber=" +  $scope.app.params.workordernumber  );
+                showIssue("Unexpected EndStep failure Params= stepId=" + data.config.data.stepId + " WorkOrderNumber=" +  $scope.app.params.workordernumber  , endStepData.rows[0].result  );
               }
             }
           },
@@ -595,7 +636,7 @@ $scope.checkForScan = function () {
 
 $scope.systemFullyInit = function () {
   
-	$scope.getUserName();              
+	  $scope.getUserName();              
     $scope.checkForScan();
   	$scope.app.params.prefill =  "";
 

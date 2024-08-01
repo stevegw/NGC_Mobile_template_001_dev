@@ -259,27 +259,11 @@
                                                     "twx-widget": "",
                                                     "widget-id": "image-5",
                                                     "widget-name": "image-5",
+                                                    "click-expression": "toggleInfo();",
                                                     "imgsrc": "Uploaded/sowiplayer/wp_info_show.png",
                                                     "width": "40px"
                                                   },
-                                                  "name": "twx-image2",
-                                                  "children": [
-                                                    {
-                                                      "attributes": {
-                                                        "eventbind-id": "eb-1722448982594",
-                                                        "source-type": "widget",
-                                                        "source-label": "Image",
-                                                        "source-name": "image-5",
-                                                        "source-event": "click",
-                                                        "handler-type": "ui",
-                                                        "handler-namespace": "",
-                                                        "handler-name": "popupSettingInfo",
-                                                        "handler-service": "showpopup",
-                                                        "handler-path": "app.view[\"Home\"].wdg[\"popupSettingInfo\"].svc.showpopup"
-                                                      },
-                                                      "name": "twx-eventbind"
-                                                    }
-                                                  ]
+                                                  "name": "twx-image2"
                                                 }
                                               ]
                                             }
@@ -361,7 +345,7 @@
                                     "widget-name": "popupHomeIssues",
                                     "is-widget-container": "true",
                                     "class": "InfoPanel",
-                                    "centered": "false",
+                                    "type": "modal",
                                     "top": "50px",
                                     "right": "1px"
                                   },
@@ -755,6 +739,91 @@
                                                       ]
                                                     }
                                                   ]
+                                                },
+                                                {
+                                                  "attributes": {
+                                                    "twx-widget": "",
+                                                    "widget-id": "row-24",
+                                                    "widget-name": "row-24",
+                                                    "is-widget-container": "true"
+                                                  },
+                                                  "name": "twx-row",
+                                                  "children": [
+                                                    {
+                                                      "attributes": {
+                                                        "class": "twx-widget-bindings",
+                                                        "slot": "bindings",
+                                                        "ptc-rendered": ""
+                                                      },
+                                                      "name": "twx-widget-bindings"
+                                                    },
+                                                    {
+                                                      "name": "twx-container-content",
+                                                      "children": [
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-38",
+                                                            "widget-name": "column-38",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "center"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "button-3",
+                                                                    "widget-name": "button-3",
+                                                                    "text": "Quit Session"
+                                                                  },
+                                                                  "name": "twx-button",
+                                                                  "children": [
+                                                                    {
+                                                                      "attributes": {
+                                                                        "eventbind-id": "eb-1722532228711",
+                                                                        "source-type": "widget",
+                                                                        "source-label": "Button",
+                                                                        "source-name": "button-3",
+                                                                        "source-event": "click",
+                                                                        "handler-type": "",
+                                                                        "handler-namespace": "app",
+                                                                        "handler-name": "fn",
+                                                                        "handler-service": "navigate",
+                                                                        "handler-path": "app-fn-navigate"
+                                                                      },
+                                                                      "name": "twx-eventbind",
+                                                                      "children": [
+                                                                        {
+                                                                          "attributes": {
+                                                                            "name": "viewname",
+                                                                            "value": "startPoint"
+                                                                          },
+                                                                          "name": "twx-event-data"
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
                                                 }
                                               ]
                                             }
@@ -771,7 +840,11 @@
                                     "is-visible-at-designtime": "false",
                                     "widget-name": "popupQuit",
                                     "is-widget-container": "true",
-                                    "class": "InfoPanel"
+                                    "class": "InfoPanel",
+                                    "type": "modal",
+                                    "centered": "false",
+                                    "top": "1px",
+                                    "left": "1px"
                                   },
                                   "name": "twx-popup",
                                   "children": [
@@ -833,6 +906,60 @@
                                                             "widget-name": "column-10",
                                                             "is-widget-container": "true",
                                                             "justification": "center",
+                                                            "alignment": "flex-start",
+                                                            "fixedcolsize": "60px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "image-3",
+                                                                    "widget-name": "image-3",
+                                                                    "imgsrc": "Uploaded/sowiplayer/wpcoe_close.png",
+                                                                    "backgroundcolor": "40px"
+                                                                  },
+                                                                  "name": "twx-image2",
+                                                                  "children": [
+                                                                    {
+                                                                      "attributes": {
+                                                                        "eventbind-id": "eb-1722521972379",
+                                                                        "source-type": "widget",
+                                                                        "source-label": "Image",
+                                                                        "source-name": "image-3",
+                                                                        "source-event": "click",
+                                                                        "handler-type": "ui",
+                                                                        "handler-namespace": "",
+                                                                        "handler-name": "popupQuit",
+                                                                        "handler-service": "hidepopup",
+                                                                        "handler-path": "app.view[\"Home\"].wdg[\"popupQuit\"].svc.hidepopup"
+                                                                      },
+                                                                      "name": "twx-eventbind"
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-13",
+                                                            "widget-name": "column-13",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
                                                             "alignment": "flex-start"
                                                           },
                                                           "name": "twx-col",
@@ -857,42 +984,6 @@
                                                                     "text": "Are you sure you wish to quit session"
                                                                   },
                                                                   "name": "twx-label"
-                                                                }
-                                                              ]
-                                                            }
-                                                          ]
-                                                        },
-                                                        {
-                                                          "attributes": {
-                                                            "twx-widget": "",
-                                                            "widget-id": "column-13",
-                                                            "widget-name": "column-13",
-                                                            "is-widget-container": "true",
-                                                            "justification": "center",
-                                                            "alignment": "flex-end"
-                                                          },
-                                                          "name": "twx-col",
-                                                          "children": [
-                                                            {
-                                                              "attributes": {
-                                                                "class": "twx-widget-bindings",
-                                                                "slot": "bindings",
-                                                                "ptc-rendered": ""
-                                                              },
-                                                              "name": "twx-widget-bindings"
-                                                            },
-                                                            {
-                                                              "name": "twx-container-content",
-                                                              "children": [
-                                                                {
-                                                                  "attributes": {
-                                                                    "twx-widget": "",
-                                                                    "widget-id": "image-3",
-                                                                    "widget-name": "image-3",
-                                                                    "imgsrc": "Uploaded/sowiplayer/wpcoe_close.png",
-                                                                    "backgroundcolor": "40px"
-                                                                  },
-                                                                  "name": "twx-image2"
                                                                 }
                                                               ]
                                                             }
@@ -1103,8 +1194,9 @@
                                     "class": "InfoPanel",
                                     "width": "70vw",
                                     "height": "25vh",
+                                    "type": "modal",
                                     "centered": "false",
-                                    "top": "45px",
+                                    "top": "1px",
                                     "left": "1px"
                                   },
                                   "name": "twx-popup",
@@ -1167,7 +1259,60 @@
                                                             "widget-name": "column-15",
                                                             "is-widget-container": "true",
                                                             "justification": "center",
-                                                            "alignment": "center"
+                                                            "alignment": "flex-start",
+                                                            "fixedcolsize": "60px"
+                                                          },
+                                                          "name": "twx-col",
+                                                          "children": [
+                                                            {
+                                                              "attributes": {
+                                                                "class": "twx-widget-bindings",
+                                                                "slot": "bindings",
+                                                                "ptc-rendered": ""
+                                                              },
+                                                              "name": "twx-widget-bindings"
+                                                            },
+                                                            {
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "image-7",
+                                                                    "widget-name": "image-7",
+                                                                    "imgsrc": "Uploaded/sowiplayer/wpcoe_close.png"
+                                                                  },
+                                                                  "name": "twx-image2",
+                                                                  "children": [
+                                                                    {
+                                                                      "attributes": {
+                                                                        "eventbind-id": "eb-1722521859970",
+                                                                        "source-type": "widget",
+                                                                        "source-label": "Image",
+                                                                        "source-name": "image-7",
+                                                                        "source-event": "click",
+                                                                        "handler-type": "ui",
+                                                                        "handler-namespace": "",
+                                                                        "handler-name": "popupSteps",
+                                                                        "handler-service": "hidepopup",
+                                                                        "handler-path": "app.view[\"Home\"].wdg[\"popupSteps\"].svc.hidepopup"
+                                                                      },
+                                                                      "name": "twx-eventbind"
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "attributes": {
+                                                            "twx-widget": "",
+                                                            "widget-id": "column-37",
+                                                            "widget-name": "column-37",
+                                                            "is-widget-container": "true",
+                                                            "justification": "center",
+                                                            "alignment": "flex-start"
                                                           },
                                                           "name": "twx-col",
                                                           "children": [
@@ -1661,9 +1806,15 @@
                                   "attributes": {
                                     "twx-widget": "",
                                     "widget-id": "popupSettingInfo",
+                                    "is-visible-at-designtime": "false",
                                     "widget-name": "popupSettingInfo",
                                     "is-widget-container": "true",
-                                    "class": "InfoPanel"
+                                    "class": "InfoPanel",
+                                    "width": "40%",
+                                    "type": "modal",
+                                    "centered": "false",
+                                    "top": "1px",
+                                    "right": "1px"
                                   },
                                   "name": "twx-popup",
                                   "children": [

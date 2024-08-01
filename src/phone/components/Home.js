@@ -36,124 +36,6 @@ showIssue = function (message, systemMessage) {
 
 
 
-
-
-
-/*saveAction = function (actionDuration, actionId, actionInput, inputFileExtension , actionDescription , sessionId , inputImage , actionName) {
-  
-  let servicename= "SaveAction";
-  let URL = workTrackURLprefix + servicename ;
-  let params = {
-	actionDuration: actionDuration,
-	actionId: actionId,
-	actionInput: actionInput,
-	inputFileExtension: inputFileExtension,
-	actionDescription: actionDescription,
-	sessionId:  sessionId,
-	inputImage: inputImage,
-	actionName: actionName
-    
-  };
-  
-
-  try {
-    let headers = {
-      Accept: 'application/json',
-      "Content-Type": 'application/json',
-      appKey: appKey
-    };
-    // Body
-    $http.post(URL, params, {
-      headers: headers,
-    })
-      .then(
-      function (data) {
-        if (data) {
-          console.log('Completed THX '+ servicename+ ' request - response =' , data);
-
-          let saveActionData = data.data;
-
-          if (data.statusText ==="OK" && !saveActionData.rows[0].result.includes('failed' )) {
-
-            // all ok 
-
-          } else if (saveActionData.rows[0].result.includes('failed' )) {
-
-            showIssue("Unexpected Save action failure ", saveActionData.rows[0].result + "  sessionId=" +sessionId + " actionName=" + actionName + " actionInput=" + actionInput  );
-          }
-
-        }
-      },
-      function (status) {
-        console.log("THX Service Failure Thingworx /PTCSC.SOWI.WorkTrack.Manager/Services/"+ servicename +" service failed!"+ "\n" + "The status returned was:  "+ status + "\n");
-        
-        showIssue("Unexpected Save action failure ", "Thingworx/PTCSC.SOWI.WorkTrack.Manager/Services/"+ servicename +" failed!"+ "\n" + "The status returned was:  "+ status + "\n" + "params =" + JSON.stringify(params) );
-        
-      }
-    )
-  } catch (e) {
-    console.log("THX Service " + servicename + " Failure", 'Check application key or if server is running or error was ' + e);
-     showIssue("Unexpected Save action failure THX Service " + servicename + " Failure", 'Check application key or if server is running or error was ' + e);
-  }
-  
-
-  
-}*/
-
-/*endStep = function (sessionId, stepId, acknowledgement) {
-
-
-    try {
-
-        let servicename = "EndStep";
-        let URL = workTrackURLprefix + servicename;
-        let params = {
-            sessionId: sessionId,
-            stepId: stepId,
-            acknowledgement: acknowledgement
-
-        };
-
-
-        let headers = {
-            Accept: 'application/json',
-            "Content-Type": 'application/json',
-            appKey: appKey
-        };
-        // Body
-        $http.post(URL, params, {
-            headers: headers,
-        })
-          .then(
-          function (data) {
-            if (data) {
-              console.log('Completed THX ' + servicename + ' request - response =', data);
-
-              let endStepData = data.data;
-              if (data.statusText === "OK" && !endStepData.rows[0].result.includes('failed')) {
-                // all ok 
-              } else if (saveActionData.rows[0].result.includes('failed')) {
-                showIssue("Unexpected end step failure ", endStepData.rows[0].result);
-              }
-            }
-          },
-          function (status) {
-            console.log("THX Service " + servicename + " Failure Thingworx /PTCSC.SOWI.WorkTrack.Manager/Services/" + servicename + " service failed!" + "\n" + "The status returned was:  " + status + "\n");
-
-            showIssue("Unexpected Save action failure ", "Thingworx/PTCSC.SOWI.WorkTrack.Manager/Services/"+ servicename +" failed!"+ "\n" + "The status returned was:  "+ status + "\n" + "params =" + JSON.stringify(params) );
-          }
-        )
-
-
-    } catch (e) {
-        console.log("THX Service " + servicename + " Failure", 'Check application key or if server is running or error was ' + e);
-        showIssue("Unexpected THX Service " + servicename + " Failure", 'Check application key or if server is running or error was ' + e);
-    }
-}
-*/
-
-
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -172,7 +54,19 @@ $scope.showHideSteps = function () {
   
 }
 
+$scope.toggleInfo = function () {
+  
+  let state = $scope.getWidgetProp("popupSettingInfo", "visible");
+  // if (state === "visible") {
+  //   $scope.setWidgetProp("popupSettingInfo", "visible" , false);
+  // } else {
 
+  //   $scope.setWidgetProp("popupSettingInfo", "visible" , true);
+  // }
+
+  let result = state === "visible" ? $scope.setWidgetProp("popupSettingInfo", "visible" , false) : $scope.setWidgetProp("popupSettingInfo", "visible" , true)
+  
+}
 
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
