@@ -1,9 +1,3 @@
-// $scope, $element, $attrs, $injector, $sce, $timeout, $http, $ionicPopup, and $ionicPopover services are available
-
-
-// $scope, $element, $attrs, $injector, $sce, $timeout, $http, $ionicPopup, and $ionicPopover services are available
-
-
 console.log($scope.app);
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -193,7 +187,7 @@ $scope.toggleInfo = function () {
   //   $scope.setWidgetProp("popupIntro", "visible" , true);
   // }
 
-  let result = state === "visible" ? $scope.setWidgetProp("popupIntro", "visible" , false) : $scope.setWidgetProp("popupIntro", "visible" , true)
+  let result = state === "visible" ? $scope.setWidgetProp("popupIntro", "visible" , false) : $scope.setWidgetProp("popupIntro", "visible" , true);
   
 }
 
@@ -207,15 +201,13 @@ $scope.toggleInfo = function () {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 $rootScope.$on('stepStart', function (evt, step) {
-	console.log(">>>> stepStart " + new Date() +  " event: " + JSON.stringify(step)); 
-  
+	console.log(">>>> stepStart " + new Date() +  " event: " + JSON.stringify(step));   
     if ($scope.app.params.sessionId != undefined){
       let stepTitle =   $rootScope.sxslHelper.getTitle();
       let stepDescription = $rootScope.sxslHelper.getDescription(); // this could be blank
       let stepStartTime = Date.now();
       let si = $rootScope.sxslHelper.getWorkTrackSessionId();
-      $rootScope.startStep(si, step.id, step.title, stepDescription , stepStartTime ); 
-  
+      $rootScope.startStep(si, step.id, step.title, stepDescription , stepStartTime );   
 	}
   
 
@@ -350,7 +342,7 @@ $rootScope.actionInputDelivered = function ( action) {
   // for now get the first response 
 
   if (responseArray[0].response != undefined &&  responseArray[0].type === "CaptureImage" ) {
-
+    $rootScope.actionPending = true;    //Slowing down processing to address the upload of an Image
     inputImage = responseArray[0].response;
     actionInput= "";
     if (responseArray[0].response.startsWith("data:image/png;base64") ) {
@@ -360,11 +352,9 @@ $rootScope.actionInputDelivered = function ( action) {
         inputImage = contentArray[1];
         inputFileExtension = "png";
       }
-
     }
-
   } else {
-
+    $rootScope.actionPending = false;
     actionInput= responseArray[0].response;
 
   }
@@ -383,7 +373,7 @@ $rootScope.actionInputDelivered = function ( action) {
   
   
 
-  try {
+  try {    
     let headers = {
       Accept: 'application/json',
       "Content-Type": 'application/json',
@@ -395,6 +385,7 @@ $rootScope.actionInputDelivered = function ( action) {
     })
       .then(
       function (data) {
+        $rootScope.actionPending = false;
         if (data) {
           console.log('Completed THX '+ servicename+ ' request - response =' , data);
 
@@ -465,13 +456,64 @@ $rootScope.actionInputDelivered = function ( action) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 $rootScope.$on('stepEnd', function (evt, step) {
-	console.log(">>>> stepEnd event: " + JSON.stringify(step)); 
-  
-      let acknowledgement = "Dunmmy End";
-      let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId() ;
-  
-      $rootScope.endStep(sessionId, step.id,  acknowledgement );
-  
+  console.log(">>>> stepEnd event: " + JSON.stringify(step));
+
+  let acknowledgement = "...";
+  let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId();
+  let acktype = step.ack.type;
+
+  switch (step.ack.type) {
+
+    case "Confirmation":
+
+      acknowledgement = step.ack.response === "y" ? "Yes" : step.ack.response;
+      break;
+
+    case "PassFail":
+
+      let resonType = step.ack.hasOwnProperty('reasonType');
+      if (!resonType) {
+        if (step.ack.response === "y") {
+          acknowledgement = "Yes"
+        }
+        else if (step.ack.response === "f") {
+          acknowledgement = "Fail";
+        } else if (step.ack.response === "p") {
+          acknowledgement = "Pass";
+        } else {
+          acknowledgement = step.ack.response;
+        }
+      } else {
+        //complex type 
+        if (step.ack.reasonType === "Code") {
+          let found = false;
+          for (let i = 0; i < step.ack.reasonCodes.length; i++) {
+            if (step.ack.reasonCodes[i].code === step.ack.response) {
+              acknowledgement = step.ack.reasonCodes[i].resources[0].text;
+              found = true;
+              break;
+            }
+          }
+          if (!found) {
+            acknowledgement = step.ack.response;
+          }
+        }
+      }
+      break;
+
+    default:
+      acknowledgement = step.ack.response;
+      break;
+  }
+
+  var checkActionPending = setInterval(function () {
+    if (!$rootScope.actionPending) {
+      console.log("#### -> going to run " + step.id + " for Sesssion = " + sessionId);
+      $rootScope.endStep(sessionId, step.id, acknowledgement);
+      clearInterval(checkActionPending);
+    }
+  }, 1000); // checks every 1000 milliseconds (1 second)
+
 
 });
 
@@ -479,8 +521,7 @@ $rootScope.$on('stepEnd', function (evt, step) {
 $rootScope.endStep = function (sessionId, stepId, acknowledgement) {
 
 
-    try {
-
+    try {       
         let servicename = "EndStep";
         let URL = workTrackURLprefix + servicename;
         let params = {
@@ -501,7 +542,7 @@ $rootScope.endStep = function (sessionId, stepId, acknowledgement) {
             headers: headers,
         })
           .then(
-          function (data) {
+          function (data) {            
             if (data) {
               console.log('Completed THX ' + servicename + ' request - response =', data);
 
