@@ -26,7 +26,6 @@
                   "attributes": {
                     "twx-widget": "",
                     "widget-id": "sxslPlayer-1",
-                    "log-incremental": "true",
                     "widget-name": "sxslPlayer-1",
                     "physical": "true",
                     "sxsldata": "Uploaded/sowi.json"
@@ -837,7 +836,6 @@
                                   "attributes": {
                                     "twx-widget": "",
                                     "widget-id": "popupQuit",
-                                    "is-visible-at-designtime": "false",
                                     "widget-name": "popupQuit",
                                     "is-widget-container": "true",
                                     "class": "InfoPanel",
@@ -1041,33 +1039,25 @@
                                                                     "twx-widget": "",
                                                                     "widget-id": "button-1",
                                                                     "widget-name": "button-1",
+                                                                    "click-expression": "returnToStart();",
                                                                     "text": "YES"
                                                                   },
                                                                   "name": "twx-button",
                                                                   "children": [
                                                                     {
                                                                       "attributes": {
-                                                                        "eventbind-id": "eb-1721232237853",
+                                                                        "eventbind-id": "eb-1722621325586",
                                                                         "source-type": "widget",
                                                                         "source-label": "Button",
                                                                         "source-name": "button-1",
                                                                         "source-event": "click",
-                                                                        "handler-type": "",
-                                                                        "handler-namespace": "app",
-                                                                        "handler-name": "fn",
-                                                                        "handler-service": "navigate",
-                                                                        "handler-path": "app-fn-navigate"
+                                                                        "handler-type": "ui",
+                                                                        "handler-namespace": "",
+                                                                        "handler-name": "sxslPlayer-1",
+                                                                        "handler-service": "reset",
+                                                                        "handler-path": "app.view[\"Home\"].wdg[\"sxslPlayer-1\"].svc.reset"
                                                                       },
-                                                                      "name": "twx-eventbind",
-                                                                      "children": [
-                                                                        {
-                                                                          "attributes": {
-                                                                            "name": "viewname",
-                                                                            "value": "startPoint"
-                                                                          },
-                                                                          "name": "twx-event-data"
-                                                                        }
-                                                                      ]
+                                                                      "name": "twx-eventbind"
                                                                     }
                                                                   ]
                                                                 }
@@ -1189,6 +1179,7 @@
                                   "attributes": {
                                     "twx-widget": "",
                                     "widget-id": "popupSteps",
+                                    "is-visible-at-designtime": "false",
                                     "widget-name": "popupSteps",
                                     "is-widget-container": "true",
                                     "class": "InfoPanel",

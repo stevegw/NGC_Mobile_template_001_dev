@@ -969,25 +969,25 @@ $scope.$on('statusLogger', function (evt, value) {
 // 
 // Will execute when the Action Ends.
 //
-$rootScope.$on('actionEnd', function (evt, action) {
-  console.log(">>>> actionEnd event: " + JSON.stringify(action)); 
+// $rootScope.$on('actionEnd', function (evt, action) {
+//   console.log(">>>> actionEnd event: " + JSON.stringify(action)); 
   
-  let actionInput = 'test input' ; // place holder
-  let inputFileExtension = '';
-  let actionDescription = action.instruction;
-  let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId();
-  let inputImage = " " ; 
-  let actionName = action.base.actiontitle;
-  let step = $rootScope.sxslHelper.getStepbyID(action.stepid); // don't need this 
+//   let actionInput = 'test input' ; // place holder
+//   let inputFileExtension = '';
+//   let actionDescription = action.instruction;
+//   let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId();
+//   let inputImage = " " ; 
+//   let actionName = action.base.actiontitle;
+//   let step = $rootScope.sxslHelper.getStepbyID(action.stepid); // don't need this 
   
-  let actionDuration = $rootScope.sxslHelper.setActionEndTime(action.id , new Date().getTime()); // update the method to return duration 
+//   let actionDuration = $rootScope.sxslHelper.setActionEndTime(action.id , new Date().getTime()); // update the method to return duration 
 
-  //let actionDuration = $rootScope.sxslHelper.getActionDuration(action.id);
+//   //let actionDuration = $rootScope.sxslHelper.getActionDuration(action.id);
   
-  //saveAction(actionDuration, action.id, actionInput, inputFileExtension , actionDescription , sessionId , inputImage , actionName);
+//   //saveAction(actionDuration, action.id, actionInput, inputFileExtension , actionDescription , sessionId , inputImage , actionName);
 
   
-});
+// });
 
 
 
