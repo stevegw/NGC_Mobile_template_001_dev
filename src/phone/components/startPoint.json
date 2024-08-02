@@ -784,7 +784,7 @@
                                                                     "twx-widget": "",
                                                                     "widget-id": "image-1",
                                                                     "widget-name": "image-1",
-                                                                    "imgsrc": "Uploaded/close.png",
+                                                                    "imgsrc": "Uploaded/sowiplayer/wpcoe_close.png",
                                                                     "width": "40px"
                                                                   },
                                                                   "name": "twx-image2",
@@ -863,7 +863,8 @@
                                                                     "widget-id": "label-4",
                                                                     "state-format-value": "text",
                                                                     "widget-name": "label-4",
-                                                                    "text": "Message"
+                                                                    "text": "Message",
+                                                                    "class": "issues-label"
                                                                   },
                                                                   "name": "twx-label"
                                                                 }
@@ -986,7 +987,8 @@
                                                                     "widget-id": "label-5",
                                                                     "state-format-value": "text",
                                                                     "widget-name": "label-5",
-                                                                    "text": "System Message"
+                                                                    "text": "System Message",
+                                                                    "class": "issues-label"
                                                                   },
                                                                   "name": "twx-label"
                                                                 }
@@ -1131,7 +1133,8 @@
                                                             "twx-widget": "",
                                                             "widget-id": "column-11",
                                                             "widget-name": "column-11",
-                                                            "is-widget-container": "true"
+                                                            "is-widget-container": "true",
+                                                            "alignment": "center"
                                                           },
                                                           "name": "twx-col",
                                                           "children": [
@@ -1144,7 +1147,50 @@
                                                               "name": "twx-widget-bindings"
                                                             },
                                                             {
-                                                              "name": "twx-container-content"
+                                                              "name": "twx-container-content",
+                                                              "children": [
+                                                                {
+                                                                  "attributes": {
+                                                                    "twx-widget": "",
+                                                                    "widget-id": "button-1",
+                                                                    "widget-name": "button-1",
+                                                                    "text": "Quit Session"
+                                                                  },
+                                                                  "name": "twx-button",
+                                                                  "children": [
+                                                                    {
+                                                                      "attributes": {
+                                                                        "eventbind-id": "eb-1722600793677",
+                                                                        "source-type": "widget",
+                                                                        "source-label": "Button",
+                                                                        "source-name": "button-1",
+                                                                        "source-event": "click",
+                                                                        "handler-type": "ui",
+                                                                        "handler-namespace": "",
+                                                                        "handler-name": "popupIntro",
+                                                                        "handler-service": "showpopup",
+                                                                        "handler-path": "app.view[\"startPoint\"].wdg[\"popupIntro\"].svc.showpopup"
+                                                                      },
+                                                                      "name": "twx-eventbind"
+                                                                    },
+                                                                    {
+                                                                      "attributes": {
+                                                                        "eventbind-id": "eb-1722600870953",
+                                                                        "source-type": "widget",
+                                                                        "source-label": "Button",
+                                                                        "source-name": "button-1",
+                                                                        "source-event": "click",
+                                                                        "handler-type": "ui",
+                                                                        "handler-namespace": "",
+                                                                        "handler-name": "popupIssue",
+                                                                        "handler-service": "hidepopup",
+                                                                        "handler-path": "app.view[\"startPoint\"].wdg[\"popupIssue\"].svc.hidepopup"
+                                                                      },
+                                                                      "name": "twx-eventbind"
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
                                                             }
                                                           ]
                                                         }
@@ -1408,7 +1454,8 @@
                                             "widget-id": "labelProcDescription",
                                             "state-format-value": "text",
                                             "widget-name": "labelProcDescription",
-                                            "text": "..."
+                                            "text": "...",
+                                            "class": "intro-label"
                                           },
                                           "name": "twx-label"
                                         }
@@ -1504,7 +1551,8 @@
                                             "widget-id": "labelProcVersion",
                                             "state-format-value": "text",
                                             "widget-name": "labelProcVersion",
-                                            "text": "..."
+                                            "text": "...",
+                                            "class": "issues-label"
                                           },
                                           "name": "twx-label"
                                         }
@@ -1601,7 +1649,8 @@
                                             "widget-id": "labelProcPubDate",
                                             "state-format-value": "text",
                                             "widget-name": "labelProcPubDate",
-                                            "text": "..."
+                                            "text": "...",
+                                            "class": "issues-label"
                                           },
                                           "name": "twx-label"
                                         }
@@ -1831,7 +1880,8 @@
                                             "widget-id": "labelUserMessage",
                                             "state-format-value": "text",
                                             "widget-name": "labelUserMessage",
-                                            "text": "Procedure Needs a Work Order Number"
+                                            "text": "Procedure Needs a Work Order Number",
+                                            "class": "intro-label-wo"
                                           },
                                           "name": "twx-label"
                                         }
@@ -1975,6 +2025,124 @@
                                       "name": "twx-widget-bindings"
                                     },
                                     {
+                                      "name": "twx-container-content"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "column-41",
+                                    "widget-name": "column-41",
+                                    "is-widget-container": "true",
+                                    "class": "",
+                                    "justification": "center"
+                                  },
+                                  "name": "twx-col",
+                                  "children": [
+                                    {
+                                      "attributes": {
+                                        "class": "twx-widget-bindings",
+                                        "slot": "bindings",
+                                        "ptc-rendered": ""
+                                      },
+                                      "name": "twx-widget-bindings"
+                                    },
+                                    {
+                                      "name": "twx-container-content",
+                                      "children": [
+                                        {
+                                          "attributes": {
+                                            "twx-widget": "",
+                                            "widget-id": "textInputWorkOrder",
+                                            "widget-name": "textInputWorkOrder",
+                                            "placeholder": "Or Enter number",
+                                            "label": "Input Label"
+                                          },
+                                          "name": "twx-text-input"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "column-17",
+                                    "widget-name": "column-17",
+                                    "is-widget-container": "true"
+                                  },
+                                  "name": "twx-col",
+                                  "children": [
+                                    {
+                                      "attributes": {
+                                        "class": "twx-widget-bindings",
+                                        "slot": "bindings",
+                                        "ptc-rendered": ""
+                                      },
+                                      "name": "twx-widget-bindings"
+                                    },
+                                    {
+                                      "name": "twx-container-content",
+                                      "children": [
+                                        {
+                                          "attributes": {
+                                            "twx-widget": "",
+                                            "widget-id": "buttonEnter",
+                                            "widget-name": "buttonEnter",
+                                            "click-expression": "manualWorkOrderEntry();",
+                                            "text": "Enter"
+                                          },
+                                          "name": "twx-button"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "attributes": {
+                            "twx-widget": "",
+                            "widget-id": "row-12",
+                            "widget-name": "row-12",
+                            "is-widget-container": "true"
+                          },
+                          "name": "twx-row",
+                          "children": [
+                            {
+                              "attributes": {
+                                "class": "twx-widget-bindings",
+                                "slot": "bindings",
+                                "ptc-rendered": ""
+                              },
+                              "name": "twx-widget-bindings"
+                            },
+                            {
+                              "name": "twx-container-content",
+                              "children": [
+                                {
+                                  "attributes": {
+                                    "twx-widget": "",
+                                    "widget-id": "column-15",
+                                    "widget-name": "column-15",
+                                    "is-widget-container": "true",
+                                    "justification": "center",
+                                    "alignment": "center"
+                                  },
+                                  "name": "twx-col",
+                                  "children": [
+                                    {
+                                      "attributes": {
+                                        "class": "twx-widget-bindings",
+                                        "slot": "bindings",
+                                        "ptc-rendered": ""
+                                      },
+                                      "name": "twx-widget-bindings"
+                                    },
+                                    {
                                       "name": "twx-container-content",
                                       "children": [
                                         {
@@ -1983,7 +2151,7 @@
                                             "widget-id": "buttonStartNewProc",
                                             "widget-name": "buttonStartNewProc",
                                             "click-expression": "startNewProcedure();",
-                                            "text": "Start New"
+                                            "text": "Start New WorkOrder"
                                           },
                                           "name": "twx-button"
                                         }
@@ -1994,8 +2162,8 @@
                                 {
                                   "attributes": {
                                     "twx-widget": "",
-                                    "widget-id": "column-41",
-                                    "widget-name": "column-41",
+                                    "widget-id": "column-16",
+                                    "widget-name": "column-16",
                                     "is-widget-container": "true",
                                     "justification": "center",
                                     "alignment": "center"

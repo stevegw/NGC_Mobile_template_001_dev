@@ -1,77 +1,43 @@
 {
-    "thumbnail": "GGD_Iris.jpg",
-    "publishDate": "2024-07-30T18:50:35.781Z",
+    "versionId": 1,
+    "publishDate": "2024-08-02T15:02:53.696Z",
     "sxslVersion": "2.0",
     "statements": [
         {
-            "stepId": "a7b635d6-39dc-45f9-9b81-0eb0a6f66a90",
+            "stepId": "6d16f81b-048f-4b0f-b288-0153d18a3e41",
             "type": "Step"
         },
         {
-            "stepId": "c27f1993-de05-4a4c-ab1d-a2a4473d1fb2",
+            "stepId": "dc56a31f-2e04-43c1-af3b-70a91faf4757",
             "type": "Step"
         },
         {
-            "stepId": "9014c5b6-e02f-4265-8cd3-e67568992231",
+            "stepId": "3718df5b-ba43-4761-8f25-15a2ceeb5584",
             "type": "Step"
         },
         {
-            "stepId": "ea9e7cd4-6123-477d-a36f-998b2320d5a7",
-            "type": "Step"
-        },
-        {
-            "stepId": "1f4de1a6-3d8d-4abc-90ca-647d4308e99d",
+            "stepId": "d174e8d9-e58e-46af-91d6-7b98e5848d3f",
             "type": "Step"
         }
     ],
-    "procName": "Procedure_XAphmaZA",
-    "contexts": {
-        "mycontext": {
-            "models": [
-                {
-                    "mimeType": "model/pvz",
-                    "url": "enginePistonAssy4pviSeq.pvz",
-                    "tags": [
-                        "occlusion",
-                        "full"
-                    ]
-                }
-            ],
-            "trackers": [
-                {
-                    "mimeType": "application/vnd.ptc.tracker.modeltracker",
-                    "content": {
-                        "targetName": "engineblockwpistons",
-                        "guideView": {
-                            "mimeType": "image/png",
-                            "lang": "en-US",
-                            "url": "p_EngineBlock_viewpoint_0001_2.png"
-                        },
-                        "dataset": {
-                            "xml": "engineblockwpistons.xml",
-                            "dat": "engineblockwpistons.dat"
-                        }
-                    }
-                }
-            ]
-        }
-    },
+    "procName": "Procedure_mNTxip37",
+    "id": "e7519b1e-16ad-4128-89db-87227015f754",
     "title": {
         "resources": [
             {
                 "mimeType": "text/plain",
-                "text": "PTC Test Case 3"
+                "text": "Acknowledgement Test"
             }
         ]
     },
     "steps": [
         {
-            "id": "a7b635d6-39dc-45f9-9b81-0eb0a6f66a90",
+            "id": "6d16f81b-048f-4b0f-b288-0153d18a3e41",
             "title": {
                 "resources": [
                     {
                         "mimeType": "text/plain",
-                        "text": "Scan Work Order"
+                        "text": "Normal WO Scan"
                     }
                 ]
             },
@@ -81,7 +47,7 @@
                         "resources": [
                             {
                                 "mimeType": "text/plain",
-                                "text": "(Required) Scan that work order to get started with the procedure"
+                                "text": "Scan WO"
                             }
                         ]
                     },
@@ -107,10 +73,10 @@
                                 }
                             ]
                         },
-                        "required": true
+                        "required": false
                     },
-                    "id": "71740d5e-2176-4ad2-a892-35627e9ddf7d",
-                    "actiontitle": "Scan Work Order",
+                    "id": "77c71cd5-b3bd-4886-bd6f-fd1b860a2a02",
+                    "actiontitle": "asdf",
                     "type": "Verify"
                 }
             ]
@@ -119,12 +85,12 @@
             "acknowledgement": {
                 "type": "Confirmation"
             },
-            "id": "c27f1993-de05-4a4c-ab1d-a2a4473d1fb2",
+            "id": "dc56a31f-2e04-43c1-af3b-70a91faf4757",
             "title": {
                 "resources": [
                     {
                         "mimeType": "text/plain",
-                        "text": "Basic Text Entry - Confirm"
+                        "text": "Confirmation Test"
                     }
                 ]
             },
@@ -134,96 +100,12 @@
                         "resources": [
                             {
                                 "mimeType": "text/plain",
-                                "text": "Please enter some basic text (Blue, Red, Yellow). You will need to confirm."
+                                "text": "Just a Test of a Confirmation Acknowledgement"
                             }
                         ]
                     },
-                    "details": {
-                        "hint": {
-                            "instructions": {
-                                "resources": [
-                                    {
-                                        "mimeType": "text/plain",
-                                        "text": "Enter Text"
-                                    }
-                                ]
-                            }
-                        },
-                        "maxCaptures": "",
-                        "ID": "",
-                        "type": "CaptureString",
-                        "title": {
-                            "resources": [
-                                {
-                                    "mimeType": "text/plain",
-                                    "text": "Basic Text Entry"
-                                }
-                            ]
-                        },
-                        "required": false
-                    },
-                    "id": "2906f860-64b2-463c-863c-749b20461ed0",
-                    "actiontitle": "Basic Text Entry - Confirm",
-                    "type": "Verify"
-                }
-            ]
-        },
-        {
-            "id": "9014c5b6-e02f-4265-8cd3-e67568992231",
-            "title": {
-                "resources": [
-                    {
-                        "mimeType": "text/plain",
-                        "text": "Take a Picture"
-                    }
-                ]
-            },
-            "actions": [
-                {
-                    "instructions": {
-                        "resources": [
-                            {
-                                "mimeType": "text/plain",
-                                "text": "(Required) Please take a picture of a pen"
-                            }
-                        ]
-                    },
-                    "references": [
-                        {
-                            "resources": [
-                                {
-                                    "id": "fe1bd3a7-5638-4a29-852c-745db2bee917",
-                                    "mimeType": "image/jpeg",
-                                    "url": "pen8350.jpg"
-                                }
-                            ],
-                            "id": "fe1bd3a7-5638-4a29-852c-745db2bee917"
-                        }
-                    ],
-                    "details": {
-                        "hint": {
-                            "resources": [
-                                {
-                                    "mimeType": "text/plain",
-                                    "text": "Say Cheese"
-                                }
-                            ]
-                        },
-                        "maxCaptures": "",
-                        "ID": "PictureProof",
-                        "type": "CaptureImage",
-                        "title": {
-                            "resources": [
-                                {
-                                    "mimeType": "text/plain",
-                                    "text": "Take Picture"
-                                }
-                            ]
-                        },
-                        "required": false
-                    },
-                    "id": "788ea74f-e71a-4817-bd25-577d2c88d3c9",
-                    "actiontitle": "Take a Picture",
+                    "id": "4b11988b-ee0b-4c9d-9519-28b453272ac6",
+                    "actiontitle": "Ac1",
                     "type": "Verify"
                 }
             ]
@@ -232,12 +114,12 @@
             "acknowledgement": {
                 "type": "PassFail"
             },
-            "id": "ea9e7cd4-6123-477d-a36f-998b2320d5a7",
+            "id": "3718df5b-ba43-4761-8f25-15a2ceeb5584",
             "title": {
                 "resources": [
                     {
                         "mimeType": "text/plain",
-                        "text": "Basic Number Entry - P/F"
+                        "text": "PassFail Simple"
                     }
                 ]
             },
@@ -247,69 +129,56 @@
                         "resources": [
                             {
                                 "mimeType": "text/plain",
-                                "text": "(Required) Please enter a basic number (0 - 9999). Please confirm it is less than 10,000"
+                                "text": "A Step Action with a simple pass fail"
                             }
                         ]
                     },
-                    "references": [
-                        {
-                            "resources": [
-                                {
-                                    "id": "1173ed6e-02d1-4ee7-99af-09a3247cd07c",
-                                    "mimeType": "image/jpeg",
-                                    "url": "Cardinal-Numbers-For-Children-To-Improve-Their-Math-Skills2855.jpg"
-                                }
-                            ],
-                            "id": "1173ed6e-02d1-4ee7-99af-09a3247cd07c"
-                        },
-                        {
-                            "resources": [
-                                {
-                                    "id": "94651bc6-8d54-45dc-a6ac-ecfc0a411a95",
-                                    "mimeType": "",
-                                    "url": "Counting"
-                                }
-                            ],
-                            "id": "94651bc6-8d54-45dc-a6ac-ecfc0a411a95"
-                        }
-                    ],
-                    "details": {
-                        "hint": {
-                            "instructions": {
-                                "resources": [
-                                    {
-                                        "mimeType": "text/plain",
-                                        "text": "Enter Number"
-                                    }
-                                ]
-                            }
-                        },
-                        "maxCaptures": "",
-                        "ID": "",
-                        "type": "CaptureNumber",
-                        "title": {
-                            "resources": [
-                                {
-                                    "mimeType": "text/plain",
-                                    "text": "Basic Number Entry"
-                                }
-                            ]
-                        },
-                        "required": true
-                    },
-                    "id": "dec1a1cf-e1b9-4c45-a778-857388170f8e",
-                    "actiontitle": "Basic Number Entry - P/F",
+                    "id": "a98e1fe4-8805-4b35-b989-98ed49e379ec",
+                    "actiontitle": "S2Ac1",
                     "type": "Verify"
                 }
             ]
         },
         {
-            "id": "1f4de1a6-3d8d-4abc-90ca-647d4308e99d",
+            "acknowledgement": {
+                "reasonCodes": [
+                    {
+                        "code": "1",
+                        "resources": [
+                            {
+                                "mimeType": "text/plain",
+                                "text": "not good"
+                            }
+                        ]
+                    },
+                    {
+                        "code": "2",
+                        "resources": [
+                            {
+                                "mimeType": "text/plain",
+                                "text": "bad"
+                            }
+                        ]
+                    },
+                    {
+                        "code": "3",
+                        "resources": [
+                            {
+                                "mimeType": "text/plain",
+                                "text": "ugly"
+                            }
+                        ]
+                    }
+                ],
+                "type": "PassFail",
+                "reasonType": "Code"
+            },
+            "id": "d174e8d9-e58e-46af-91d6-7b98e5848d3f",
             "title": {
                 "resources": [
                     {
                         "mimeType": "text/plain",
-                        "text": "Basic Date Entry"
+                        "text": "A Complex PassFail"
                     }
                 ]
             },
@@ -319,64 +188,25 @@
                         "resources": [
                             {
                                 "mimeType": "text/plain",
-                                "text": "(Required) Please enter today's date"
+                                "text": "An Action to test the Complex Pass Fail Acknowledgement"
                             }
                         ]
                     },
-                    "references": [
-                        {
-                            "resources": [
-                                {
-                                    "id": "48ab536c-575d-434a-86eb-6de746195d3b",
-                                    "mimeType": "application/pdf",
-                                    "url": "2024-calendar-portrait-sunday-start9437.pdf"
-                                }
-                            ],
-                            "id": "48ab536c-575d-434a-86eb-6de746195d3b"
-                        }
-                    ],
-                    "details": {
-                        "regex": "^(0?[1-9]|1[0-2])/(0?[1-9]|[1-9]|1\\d|2\\d|3[01])/(19|20)\\d{2}$",
-                        "hint": {
-                            "instructions": {
-                                "resources": [
-                                    {
-                                        "mimeType": "text/plain",
-                                        "text": "MM/DD/YYYY"
-                                    }
-                                ]
-                            }
-                        },
-                        "maxCaptures": "",
-                        "ID": "HL_Date",
-                        "type": "CaptureString",
-                        "title": {
-                            "resources": [
-                                {
-                                    "mimeType": "text/plain",
-                                    "text": "HL Date"
-                                }
-                            ]
-                        },
-                        "required": false
-                    },
-                    "id": "594ac848-d197-4682-8e6f-0123be4e889f",
-                    "actiontitle": "Basic Date Entry",
+                    "id": "1ad53b6c-21d1-4a09-b7ad-c1aba4e6f463",
+                    "actiontitle": "S3Ac1",
                     "type": "Verify"
                 }
             ]
         }
     ],
-    "orgId": "80d2567c-d0b2-4b72-8bc6-e021f579485a",
-    "versionDisplayName": 4,
-    "versionId": 4,
-    "id": "7b7dfb2b-fbbc-4854-a79b-17e21f3b522b",
     "introduction": {
         "resources": [
             {
                 "mimeType": "text/plain",
-                "text": "Test of basic Step Confirmation Types plus some resources\n- Work Order Scan,\n- Series of steps with one action each to capture each basic input type,\nStep Acknowledgements added,\nResources added to certain actions"
+                "text": "A Procedure to test Acknowledgements"
             }
         ]
-    }
+    },
+    "orgId": "80d2567c-d0b2-4b72-8bc6-e021f579485a",
+    "versionDisplayName": 1
 }

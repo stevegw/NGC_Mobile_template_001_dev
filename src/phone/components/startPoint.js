@@ -4,13 +4,8 @@ console.log($scope.app);
 // Globals
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const UPLOADPATH = "app/resources/Uploaded/";
-const workTrackURLprefix  = '/Thingworx/Things/PTCSC.SOWI.WorkTrack.Manager/Services/'
-const appKey = "80d2567c-d0b2-4b72-8bc6-e021f579485a";
-const headers = {
-  Accept: 'application/json',
-  "Content-Type": 'application/json',
-  appKey: appKey
-};
+const workTrackURLprefix  = '/Thingworx/Things/PTCSC.SOWI.WorkTrack.Manager/Services/';
+
 
 let SXSLData ;
 let ShowStartSplash = true;
@@ -36,17 +31,12 @@ showIssue = function (message, systemMessage) {
 }
 
 
-
-
-  
 showIntroPopup = function () {
   
   $scope.setWidgetProp("labelProcDescription", "text", SXSLData.title.resources[0].text );
-  
   $scope.setWidgetProp("labelProcVersion", "text", SXSLData.versionId );
   
 
-  
   let dateStr = SXSLData.publishDate;
   let dateObj = new Date(dateStr);
   let readableDate = dateObj.toLocaleString();
@@ -63,12 +53,17 @@ showIntroPopup = function () {
 }
 
 
-showHideProcButtons = function (showWorkOrder,showHideNewProc, showHideResumeProc) {
+showHideProcButtons = function (showWorkOrder,showHideNewProc, showHideResumeProc, showHideInputWO, showHideEnterButton ) {
   
     $scope.setWidgetProp("buttonScanForWorkOrder", "visible", showWorkOrder);
     $scope.setWidgetProp("buttonStartNewProc", "visible", showHideNewProc);
     $scope.setWidgetProp("buttonResumeProc", "visible", showHideResumeProc);
-  
+
+    $scope.setWidgetProp("textInputWorkOrder", "visible", showHideInputWO);
+    $scope.setWidgetProp("buttonEnter", "visible", showHideEnterButton);
+    
+
+    
 }
 
 
@@ -79,6 +74,8 @@ lookupProcedure = function (wonum) {
   
   // Check for valid procedure name/id
 
+  let procedureId = $rootScope.sxslHelper.getId();
+
   $scope.app.params.procedureId  = $rootScope.sxslHelper.getId();
   $scope.app.params.procedureVersionId  = $rootScope.sxslHelper.getVersionId();
   
@@ -87,13 +84,13 @@ lookupProcedure = function (wonum) {
 	procedureLastEditor: "no lonegr used",
 	procedureVersion: $rootScope.sxslHelper.getVersionId(),
 	procedureDescription: $rootScope.sxslHelper.getDescription(),
-	relatedProduct: "Some related Product" /* STRING */,
-	relatedAsset: "Some related Asset" /* STRING */,
+	relatedProduct: "Future feature - Some related Product" /* STRING */,
+	relatedAsset: "Future feature - Some related Asset" /* STRING */,
 	workOrderNumber: wonum /* STRING */,
 	language: "en-US" /* STRING */,
 	devicePlatform: "mobile" /* STRING */,
 	//userName: $scope.app.params.username /* STRING */, //no longer needed
-	procedureId: $rootScope.sxslHelper.getId() /* STRING */,
+	procedureId: procedureId /* STRING */,
 	procedureTitle: $rootScope.sxslHelper.getTitle() /* STRING */
     
   };
@@ -101,8 +98,7 @@ lookupProcedure = function (wonum) {
   try {
     let headers = {
       Accept: 'application/json',
-      "Content-Type": 'application/json',
-      appKey: appKey
+      "Content-Type": 'application/json'
     };
     // Body
     $http.post(URL, params, {
@@ -133,7 +129,7 @@ lookupProcedure = function (wonum) {
                 $rootScope.sxslHelper.setLastFinishedActionId(data.data.rows[0].lastFinishedActionId);
                 // refresh and resume buttons 
                 $scope.setWidgetProp("labelUserMessage", "text", "Procedure has already '" + workOrderProcedureStatus  + "' Click Start New or Resume" ); 
-                showHideProcButtons(false, true, true);
+                showHideProcButtons(false, true, true, false,false);
                 showIntroPopup();     
 
               } else if ((lastFinishedActionId === undefined || lastFinishedActionId === "") && workOrderProcedureStatus == "started" ) {
@@ -142,13 +138,13 @@ lookupProcedure = function (wonum) {
                 
               } else {
                 // unknown state maybe 
-                showIssue("Unexpected Issue workOrderProcedureStatus " + workOrderProcedureStatus , message );
+                showIssue("Unexpected Issue workOrderProcedureStatus request failed"  , message );
                 
               }
 
           	} else {
               // display possible issue
-              showIssue("workOrderProcedureStatus " + workOrderProcedureStatus , message );
+              showIssue("Unexpected Issue workOrderProcedureStatus request failed" , message );
               
             }
 
@@ -193,6 +189,10 @@ $scope.toggleInfo = function () {
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// EVENTS
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
 // Will execute when the STEP STARTS - stepStart
@@ -230,8 +230,7 @@ $rootScope.startStep = function (sessionId, stepId , stepTitle , stepDescription
   try {
     let headers = {
       Accept: 'application/json',
-      "Content-Type": 'application/json',
-      appKey: appKey
+      "Content-Type": 'application/json'
     };
     // Body
     $http.post(URL, params, {
@@ -240,13 +239,19 @@ $rootScope.startStep = function (sessionId, stepId , stepTitle , stepDescription
       .then(
       function (data) {
         if (data) {
-          console.log('Completed THX ' + servicename +' request - response =' , data);
+          console.log('Completed THX ' + servicename +' request - response ='  + data);
 
           let startStepData = data.data;
 
           if (data.statusText ==="OK" && !startStepData.rows[0].result.includes('failed' )) {
 
             // all ok 
+          }
+          else if (startStepData.rows[0].result.includes('started already' )) {
+             // all ignore 
+             console.log('Start Step -  Ignoring failure ' + startStepData.rows[0].result);
+             
+  
 
           } else if (startStepData.rows[0].result.includes('failed' )) {
 
@@ -376,8 +381,7 @@ $rootScope.actionInputDelivered = function ( action) {
   try {    
     let headers = {
       Accept: 'application/json',
-      "Content-Type": 'application/json',
-      appKey: appKey
+      "Content-Type": 'application/json'
     };
     // Body
     $http.post(URL, params, {
@@ -387,7 +391,7 @@ $rootScope.actionInputDelivered = function ( action) {
       function (data) {
         $rootScope.actionPending = false;
         if (data) {
-          console.log('Completed THX '+ servicename+ ' request - response =' , data);
+          console.log('Completed THX '+ servicename+ ' request - response =' +  data);
 
           let saveActionData = data.data;
 
@@ -420,30 +424,6 @@ $rootScope.actionInputDelivered = function ( action) {
 }
 
 
-
-
-// 
-// Will execute when the Action Ends.
-//
-/*$scope.$on('actionEnd', function (evt, action) {
-  console.log(">>>> actionEnd event: " + JSON.stringify(action)); 
-  
-  let actionInput = 'test input' ; // place holder
-  let inputFileExtension = '';
-  let actionDescription = action.instruction;
-  let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId();
-  let inputImage = " " ; 
-  let actionName = action.base.actiontitle;
-  let step = $rootScope.sxslHelper.getStepbyID(action.stepid); // don't need this 
-  
-  let actionDuration = $rootScope.sxslHelper.setActionEndTime(action.id , new Date().getTime()); // update the method to return duration 
-
-  //let actionDuration = $rootScope.sxslHelper.getActionDuration(action.id);
-  
-  saveAction(actionDuration, action.id, actionInput, inputFileExtension , actionDescription , sessionId , inputImage , actionName);
-
-  
-});*/
 
 
 
@@ -534,8 +514,7 @@ $rootScope.endStep = function (sessionId, stepId, acknowledgement) {
 
         let headers = {
             Accept: 'application/json',
-            "Content-Type": 'application/json',
-            appKey: appKey
+            "Content-Type": 'application/json'
         };
         // Body
         $http.post(URL, params, {
@@ -544,7 +523,7 @@ $rootScope.endStep = function (sessionId, stepId, acknowledgement) {
           .then(
           function (data) {            
             if (data) {
-              console.log('Completed THX ' + servicename + ' request - response =', data);
+              console.log('Completed THX ' + servicename + ' request - response =' +  data);
 
               let endStepData = data.data;
               if (data.statusText === "OK" && !endStepData.rows[0].result.includes('failed')) {
@@ -588,17 +567,18 @@ $rootScope.$on('procEnd', function (evt, procedure) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //
-// Will execute when the PROCEDURE END - actionInputDelivered
+// Will execute when the PROCEDURE END - EndProcedureSession
 //
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 $rootScope.endProcedure = function (sessionId) {
   
+      let servicename = "EndProcedureSession";
+      let URL = workTrackURLprefix + servicename;
       try {
         
-        let servicename = "EndProcedureSession";
-        let URL = workTrackURLprefix + servicename;
+
         let params = {
             sessionId: sessionId
         };
@@ -610,7 +590,7 @@ $rootScope.endProcedure = function (sessionId) {
           .then(
           function (data) {
             if (data) {
-              console.log('Completed THX ' + servicename + ' request - response =', data);
+              console.log('Completed THX ' + servicename + ' request - response =' + data);
 
               let endStepData = data.data;
               if (data.statusText === "OK" && !endStepData.rows[0].result.includes('failed')) {
@@ -650,34 +630,65 @@ $scope.scanComplete = function () {
     let wonum =  $scope.getWidgetProp('scanWorkOrder','scannedValue' ); 
   	$scope.app.params.workordernumber = wonum;
     $rootScope.sxslHelper.setWorkOrder(wonum);    // Store the WorkOrder    
+
+   // below is repeat piece of code should create a function
     
-    lookupProcedure(wonum);
-  
+  let procedureId = $rootScope.sxslHelper.getId();
+
+  if (procedureId != undefined && procedureId != "") {
+        lookupProcedure(wonum);
+  } else {
+
+    showIssue("Unexpected issue. Problem getting the ProcedureId from sowi .", "The sowi.json is located in " + UPLOADPATH);
+  }
+    
 }
+
 
 
 $scope.checkForScan = function () {
 
     let scanneeded = $rootScope.sxslHelper.WOScanNeeded();
     if (scanneeded) {
-        // set user message
         $scope.setWidgetProp("labelUserMessage", "text", "Procedure Needs a Work Order Number" ); 
     }
     else {
         // No WorkOrder needed.
         $scope.setWidgetProp("labelUserMessage", "text", "Click New to start Procedure" ); 
-        //$scope.app.fn.navigate("Home");
     }
   
-    showHideProcButtons(true,false,false);
+    showHideProcButtons(true,false,false,true,true);
     showIntroPopup();
 }
 
 
+$scope.manualWorkOrderEntry = function () {
+
+  let wonum = $scope.getWidgetProp("textInputWorkOrder", "text");
+  if (wonum != undefined && wonum != "") {
+
+    $scope.app.params.workordernumber = wonum;
+    $rootScope.sxslHelper.setWorkOrder(wonum);    // Store the WorkOrder   
+
+    // below is repeat piece of code should create a function
+    let procedureId = $rootScope.sxslHelper.getId();  
+    if (procedureId != undefined && procedureId != "") {
+          lookupProcedure(wonum);
+    } else {
+      showIssue("Unexpected issue. Problem getting the ProcedureId from sowi .", "The sowi.json is located in " + UPLOADPATH);
+    }
+      
+
+  } else {
+    showIssue("Empty value found!", "Please enter a non blank value" );
+
+  }
+
+}
 
 $scope.systemFullyInit = function () {
   
-	  $scope.getUserName();              
+	  //$scope.getUserName();      no longer needed        
     $scope.checkForScan();
   	$scope.app.params.prefill =  "";
 
@@ -709,19 +720,10 @@ $scope.resumeProcedure = function () {
   try {
     let lastFinishedActionId =  $rootScope.sxslHelper.getLastFinishedActionId();
     if (lastFinishedActionId != undefined & lastFinishedActionId != "" ) {
-
-      //let stepNumber = $rootScope.sxslHelper.getWorkTrackStepNumberByActionId(lastFinishedActionId);
-      //let stepId = $rootScope.sxslHelper.getWorkTrackStepIdByActionId(lastFinishedActionId);
       
-      // $scope.app.params.prefill =   {actionId:lastFinishedActionId,status:"hold", reason: "not recorded"};                       //$rootScope.sxslHelper.getWorkTrackResumePreReq(stepId);
-      
-      $rootScope.getCompletedSteps(lastFinishedActionId);
-      
-      
+      $rootScope.getCompletedSteps(lastFinishedActionId); 
 
     }
-
-
 
   } catch (error) {
     
@@ -746,8 +748,7 @@ $rootScope.getCompletedSteps = function (lastFinishedActionId ) {
     try {
     let headers = {
       Accept: 'application/json',
-      "Content-Type": 'application/json',
-      appKey: appKey
+      "Content-Type": 'application/json'
     };
     // Body
     $http.post(URL, params, {
@@ -790,7 +791,6 @@ $rootScope.getCompletedSteps = function (lastFinishedActionId ) {
           if (lastFinishedActionId) {
             completedSteps.push({actionId:lastFinishedActionId,status:"hold"});
           }
-          //$scope.app.params.prefill = completedSteps; 
 
           $scope.app.params.prefill =  $rootScope.sxslHelper.getWorkTrackResumeList(lastFinishedActionId);
           $scope.app.fn.navigate("Home");
@@ -871,9 +871,18 @@ $scope.$on("$ionicView.loaded", function (event) {
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Archived 
+// Archived references
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+/*
+ const appKey = "80d2567c-d0b2-4b72-8bc6-e021f579485a";
+ const headers = {
+  Accept: 'application/json',
+  "Content-Type": 'application/json',
+  appKey: appKey
+};
+*/
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // GETUSER NAME from Thingworx session 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -885,8 +894,7 @@ $scope.getUserName = function () {
 
   let headers = {
     Accept: 'application/json',
-    "Content-Type": 'application/json',
-    appKey: appKey
+    "Content-Type": 'application/json'
   };
 
   
@@ -915,45 +923,9 @@ $scope.getUserName = function () {
 /*
 
 $scope.$on('statusLogger', function (evt, value) {
-  
-  
+
   console.log(">>>> statusLogger:" + value);
 
-  // 
-  
-  if (value.event === "procstart") {
-
-    let PROCEDURE_ID = value.id ;
-    let PROCEDURE_START_TIME = value.time;
- 
-  }
-  //$rootScope.thingworxRequest(value , params , 'testrequest');
-  
-  // if SaveAction  // execute after input
-  //   actionId
-  //   actionName
-  //   actionDescription
-  //   actionInput
-  //   actionDuration
-  
-  // if StartStep
-  //   sessionId
-  //   stepId
-  //   stepTitle
-  //   stepDescription
-  
-  // if EndStep
-  //   sessionId
-  //   stepId
-  //   acknowledgement
-  //   failReasons
-  
-  // if EndProcedureSession
-  //   workOrderNumber
-  //   procedureId
-  //   procedureVersion
-   
- 
   let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId() ;
   switch(value.event) {
       
@@ -983,6 +955,30 @@ $scope.$on('statusLogger', function (evt, value) {
 
 */
 
+
+
+// 
+// Will execute when the Action Ends.
+//
+$rootScope.$on('actionEnd', function (evt, action) {
+  console.log(">>>> actionEnd event: " + JSON.stringify(action)); 
+  
+  let actionInput = 'test input' ; // place holder
+  let inputFileExtension = '';
+  let actionDescription = action.instruction;
+  let sessionId = $rootScope.sxslHelper.getWorkTrackSessionId();
+  let inputImage = " " ; 
+  let actionName = action.base.actiontitle;
+  let step = $rootScope.sxslHelper.getStepbyID(action.stepid); // don't need this 
+  
+  let actionDuration = $rootScope.sxslHelper.setActionEndTime(action.id , new Date().getTime()); // update the method to return duration 
+
+  //let actionDuration = $rootScope.sxslHelper.getActionDuration(action.id);
+  
+  //saveAction(actionDuration, action.id, actionInput, inputFileExtension , actionDescription , sessionId , inputImage , actionName);
+
+  
+});
 
 
 

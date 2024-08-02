@@ -49,6 +49,25 @@ $maintrbackground-color: rgba(162, 26, 2, 0.75);
 $mainfont-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
 
 
+.intro-label {
+	color: black !important;
+  font-weight: bold ;
+	//alignment: center !important;
+}
+
+.intro-label-wo {
+	color: black !important;
+  font-weight: bold ;
+  font-size: larger;
+	//alignment: center !important;
+}
+
+.issues-label {
+	color: black !important;
+  font-weight: bold ;
+	//alignment: center !important;
+}
+
 .simple-label {
 	color: black !important;
 	//alignment: center !important;
