@@ -1921,7 +1921,9 @@
                                     "is-widget-container": "true",
                                     "class": "",
                                     "justification": "center",
-                                    "alignment": "center"
+                                    "alignment": "center",
+                                    "fixedcolsize": "",
+                                    "padding": "25px"
                                   },
                                   "name": "twx-col",
                                   "children": [
@@ -1941,7 +1943,8 @@
                                             "twx-widget": "",
                                             "widget-id": "buttonScanForWorkOrder",
                                             "widget-name": "buttonScanForWorkOrder",
-                                            "text": "Click to Scan for Work Order Number "
+                                            "text": "Click to Scan Work Order Number ",
+                                            "margin": ""
                                           },
                                           "name": "twx-button",
                                           "children": [
@@ -2036,7 +2039,10 @@
                                     "widget-name": "column-41",
                                     "is-widget-container": "true",
                                     "class": "",
-                                    "justification": "center"
+                                    "flexdirection": "row",
+                                    "justification": "space-around",
+                                    "alignment": "flex-end",
+                                    "padding": "25px"
                                   },
                                   "name": "twx-col",
                                   "children": [
@@ -2056,10 +2062,20 @@
                                             "twx-widget": "",
                                             "widget-id": "textInputWorkOrder",
                                             "widget-name": "textInputWorkOrder",
-                                            "placeholder": "Or Enter number",
+                                            "placeholder": "Enter Work Order Number ",
                                             "label": "Input Label"
                                           },
                                           "name": "twx-text-input"
+                                        },
+                                        {
+                                          "attributes": {
+                                            "twx-widget": "",
+                                            "widget-id": "buttonEnter",
+                                            "widget-name": "buttonEnter",
+                                            "click-expression": "manualWorkOrderEntry();",
+                                            "text": "Enter"
+                                          },
+                                          "name": "twx-button"
                                         }
                                       ]
                                     }
@@ -2070,7 +2086,8 @@
                                     "twx-widget": "",
                                     "widget-id": "column-17",
                                     "widget-name": "column-17",
-                                    "is-widget-container": "true"
+                                    "is-widget-container": "true",
+                                    "padding": "25px"
                                   },
                                   "name": "twx-col",
                                   "children": [
@@ -2083,19 +2100,7 @@
                                       "name": "twx-widget-bindings"
                                     },
                                     {
-                                      "name": "twx-container-content",
-                                      "children": [
-                                        {
-                                          "attributes": {
-                                            "twx-widget": "",
-                                            "widget-id": "buttonEnter",
-                                            "widget-name": "buttonEnter",
-                                            "click-expression": "manualWorkOrderEntry();",
-                                            "text": "Enter"
-                                          },
-                                          "name": "twx-button"
-                                        }
-                                      ]
+                                      "name": "twx-container-content"
                                     }
                                   ]
                                 }
@@ -2150,7 +2155,7 @@
                                             "twx-widget": "",
                                             "widget-id": "buttonStartNewProc",
                                             "widget-name": "buttonStartNewProc",
-                                            "click-expression": "startNewProcedure();",
+                                            "click-expression": "resetForNewProcedure();",
                                             "text": "Start New WorkOrder"
                                           },
                                           "name": "twx-button"

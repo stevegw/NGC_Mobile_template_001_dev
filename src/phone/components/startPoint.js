@@ -128,7 +128,7 @@ lookupProcedure = function (wonum) {
               
                 $rootScope.sxslHelper.setLastFinishedActionId(data.data.rows[0].lastFinishedActionId);
                 // refresh and resume buttons 
-                $scope.setWidgetProp("labelUserMessage", "text", "Procedure has already '" + workOrderProcedureStatus  + "' Click Start New or Resume" ); 
+                $scope.setWidgetProp("labelUserMessage", "text", "Procedure with #" + wonum + " has already '" + workOrderProcedureStatus  + "' Click Start New  WorkOrder or Resume" ); 
                 showHideProcButtons(false, true, true, false,false);
                 showIntroPopup();     
 
@@ -698,6 +698,8 @@ $scope.systemFullyInit = function () {
 $scope.startNewProcedure = function () {
   
   $rootScope.sxslHelper.setFreshRun(true);
+
+
   
   if ($rootScope.sxslHelper.getWorkOrder() !== undefined && $rootScope.sxslHelper.getWorkOrder() !== "") {
     
@@ -708,9 +710,16 @@ $scope.startNewProcedure = function () {
     $scope.app.params.firstStepID = firstStepId;
     
   } 
-  
   $scope.app.fn.navigate("Home");
 
+}
+
+$scope.resetForNewProcedure = function () {
+  
+  $rootScope.sxslHelper.setFreshRun(true);
+  $scope.setWidgetProp("labelUserMessage", "text", "Click New to start Procedure" );
+  showHideProcButtons(true,false,false,true,true);
+  showIntroPopup();
   
 }
 
