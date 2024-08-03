@@ -6,6 +6,7 @@ class coeSxSLHelper {
     #wtmessage;
     #wtsessionid;
     #wtResumeStep;
+    #stepActionStatus;
 
     #actionTimesMap;
     #lastFinishedActionId;
@@ -177,11 +178,55 @@ class coeSxSLHelper {
     getFreshRun (){
         return this.#freshRun;
     }
-
+//JH Start 8/2
     setSxSL(d) {
         //This function is to set the overall SxSL data;
-        this.#sxslData = d;
+        this.#sxslData = d;        
+        this.#stepActionStatus = d.steps.map(step => ({
+            stepId: step.id,
+            actions: step.actions.map(action => ({
+                id: action.id,
+                actiontitle: action.actiontitle,
+                started:false,
+                finished: false,
+                recorded: false
+            }))
+        }));
     }
+
+    getstepActionStatus(){
+        return this.#stepActionStatus;
+    }
+
+    getActionRecordedByIds(stepId, actionId) {
+        var sarray = this.#stepActionStatus;
+        for (let i = 0; i < sarray.length; i++) {
+            if (sarray[i].stepId === stepId) {
+                for (let j = 0; j < sarray[i].actions.length; j++) {
+                    if (sarray[i].actions[j].id === actionId) {
+                        return sarray[i].actions[j].recorded;
+                    }
+                }
+            }
+        }
+        return null; // Return null if no matching stepId and actionId are found
+    }
+
+    setActionRecordedValue(stepId, actionId, val) {
+        var sarray = this .#stepActionStatus;
+        for(let i = 0; i < sarray.length; i++) {
+            if(sarray[i].stepId === stepId) {
+                for(let j = 0; j < sarray[i].actions.length; j++) {
+                    if(sarray[i].actions[j].id === actionId) {
+                        sarray[i].actions[j].recorded = val;
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+//JH end 8/2
 
     getDescription() {
         //Returns the private variable "imageLoaded"

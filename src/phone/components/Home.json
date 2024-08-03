@@ -51,6 +51,23 @@
                     },
                     {
                       "attributes": {
+                        "databind-id": "db-1722644146930",
+                        "source-type": "data",
+                        "source-label": "",
+                        "source-name": "sxsldebug",
+                        "source-item-type": "value",
+                        "source-item-name": "sxsldebug",
+                        "source-item-field-name": "",
+                        "binding-type": "custom_field",
+                        "from-expression": "app.params['sxsldebug']",
+                        "to-property": "logIncremental",
+                        "base-type": "",
+                        "shape": ""
+                      },
+                      "name": "twx-databind"
+                    },
+                    {
+                      "attributes": {
                         "eventbind-id": "eb-1721154113076",
                         "source-type": "widget",
                         "source-label": "SXSL Player",
@@ -605,6 +622,7 @@
                                                                     "state-format-value": "text",
                                                                     "widget-name": "labelHomeIssueMessage1",
                                                                     "text": "...",
+                                                                    "class": "issues-label",
                                                                     "padding": "0px,0px,0px,25px"
                                                                   },
                                                                   "name": "twx-label"
@@ -727,6 +745,7 @@
                                                                     "state-format-value": "text",
                                                                     "widget-name": "labelHomeIssueMessage2",
                                                                     "text": "...",
+                                                                    "class": "issues-label",
                                                                     "padding": "0px,0px,0px,25px"
                                                                   },
                                                                   "name": "twx-label"
@@ -836,6 +855,7 @@
                                   "attributes": {
                                     "twx-widget": "",
                                     "widget-id": "popupQuit",
+                                    "is-visible-at-designtime": "false",
                                     "widget-name": "popupQuit",
                                     "is-widget-container": "true",
                                     "class": "InfoPanel",
@@ -1179,7 +1199,6 @@
                                   "attributes": {
                                     "twx-widget": "",
                                     "widget-id": "popupSteps",
-                                    "is-visible-at-designtime": "false",
                                     "widget-name": "popupSteps",
                                     "is-widget-container": "true",
                                     "class": "InfoPanel",
@@ -1572,7 +1591,8 @@
                                                                     "twx-widget": "",
                                                                     "widget-id": "repeater-1",
                                                                     "widget-name": "repeater-1",
-                                                                    "is-widget-repeater": "true"
+                                                                    "is-widget-repeater": "true",
+                                                                    "repeatercontentclass": "repeater-cell-sxsl"
                                                                   },
                                                                   "name": "twx-repeater",
                                                                   "children": [
@@ -1586,7 +1606,7 @@
                                                                       "children": [
                                                                         {
                                                                           "attributes": {
-                                                                            "databind-id": "db-1721413737099",
+                                                                            "databind-id": "db-1722701757418",
                                                                             "source-type": "ui",
                                                                             "source-label": "SXSL Player",
                                                                             "source-name": "sxslPlayer-1",

@@ -102,6 +102,26 @@
         "value": ""
       },
       "name": "twx-app-param"
+    },
+    {
+      "attributes": {
+        "id": "sxsldebug",
+        "isbound": "false",
+        "isdeletable": "true",
+        "name": "sxsldebug",
+        "value": "false"
+      },
+      "name": "twx-app-param"
+    },
+    {
+      "attributes": {
+        "id": "jloggerdebug",
+        "isbound": "false",
+        "isdeletable": "true",
+        "name": "jloggerdebug",
+        "value": "true"
+      },
+      "name": "twx-app-param"
     }
   ],
   "name": "twx-app-mdl"

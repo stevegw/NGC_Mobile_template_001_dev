@@ -1,7 +1,9 @@
 // $scope, $element, $attrs, $injector, $sce, $timeout, $http, $ionicPopup, and $ionicPopover services are available
 
 
-console.log($scope.app);
+$scope.$on("$ionicView.loaded", function (event) {
+  $scope.view.wdg.sxsldebug = JSON.parse($scope.app.params.sxsldebug);
+});
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Globals
@@ -53,45 +55,3 @@ $scope.returnToStart = function () {
 
   
 }
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Events
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//
-
-
-//This function will execute each time the view is loaded
-$scope.$on("$ionicView.loaded", function (event) {
-    // Check we have coeSxSLHelper
-    
-  if (typeof $rootScope.sxslHelper === 'object' && $rootScope.sxslHelper !== null ) {
-    console.log(">>>> $rootScope.sxslHelper is a valid object");
-
-  } else {
-    
-    console.log(">>>> $rootScope.sxslHelper is NOT a valid object !!!!!!!!!!!!!"); 
-    showIssue("$rootScope.sxslHelper is NOT a valid object this is unexpected!" , "Failed to create a useable object from the json data");
-  }
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

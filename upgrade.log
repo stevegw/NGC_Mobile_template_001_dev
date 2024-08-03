@@ -165,3 +165,22 @@
 [2024-08-01T11:37:43.295Z] debug: [twx-studio:upgrade:NGC_Mobile_template_rev3-working] pathDir
 [2024-08-01T11:37:48.024Z] debug: [twx-studio:upgrade:NGC_Mobile_template_rev3-working] END buildApp
 [2024-08-01T11:37:48.024Z] debug: [twx-studio:upgrade:NGC_Mobile_template_rev3-working] Build succeeded.
+[2024-08-02T15:56:07.935Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] Begin upgrade of project
+[2024-08-02T15:56:07.936Z] info: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] Upgrading project
+[2024-08-02T15:56:07.937Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] Make sure there are not any stale files lying around
+[2024-08-02T15:56:07.937Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] Removing 
+[2024-08-02T15:56:07.953Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] Create .gitignore for project dir
+[2024-08-02T15:56:07.954Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] Copying /src/**/* to project, overwrite=false
+[2024-08-02T15:56:07.955Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] Copying /**/* to project, skip /src/**/*,  overwrite=true
+[2024-08-02T15:56:08.016Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] Copy of project files complete
+[2024-08-02T15:56:08.016Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] Updating version to 
+[2024-08-02T15:56:08.016Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] onupgrade sucessful, now build the project
+[2024-08-02T15:56:08.016Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] BEGIN buildApp
+[2024-08-02T15:56:08.016Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] write settings
+[2024-08-02T15:56:08.017Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] copy runtime extensions
+[2024-08-02T15:56:08.800Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] packageThemeSet
+[2024-08-02T15:56:10.483Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] onBuild
+[2024-08-02T15:56:10.483Z] info: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] Building ves-ar-extension app:
+[2024-08-02T15:56:10.484Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] pathDir
+[2024-08-02T15:56:11.344Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] END buildApp
+[2024-08-02T15:56:11.344Z] debug: [twx-studio:upgrade:NGC_Mobile_template_devTHUR01] Build succeeded.
