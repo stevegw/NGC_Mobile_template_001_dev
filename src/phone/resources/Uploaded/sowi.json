@@ -1,1 +1,492 @@
-{"thumbnail":"engine4PistonsThumbnail.png","publishDate":"2024-08-01T20:37:22.491Z","sxslVersion":"2.0","statements":[{"stepId":"278b8cff-e8a4-4bcc-8fce-d6eacc9550de","type":"Step"},{"stepId":"87b55881-03c1-4678-97f0-fdd5ee85f2b6","type":"Step"},{"stepId":"5ce7befd-19aa-4951-93ba-92b32e88eefb","type":"Step"},{"stepId":"d2bd7fb9-d8cc-4692-b758-96da819187a8","type":"Step"},{"stepId":"1d1d31ee-1148-4c37-ac9f-891fdbcca761","type":"Step"}],"procName":"Procedure_LQJ1RlZL","contexts":{"mycontext":{"models":[{"mimeType":"model/pvz","url":"enginePistonAssy4pviSeq_Med.pvz","tags":["occlusion","full"]}],"trackers":[{"mimeType":"application/vnd.ptc.tracker.modeltracker","content":{"targetName":"engineblockwpistons","guideView":{"mimeType":"image/png","lang":"en-US","url":"p_GuideView_0000_2.png"},"dataset":{"xml":"engineblockwpistons.xml","dat":"engineblockwpistons.dat"}}}],"assets":{"Figure2.seq_2":{"resources":[{"composition":"partset","sceneName":"Figure2","mimeType":"application/vnd.ptc.pvz","modelUrl":"enginePistonAssy4pviSeq_Med.pvz"}]},"Figure3.seq_3":{"resources":[{"composition":"partset","sceneName":"Figure3","mimeType":"application/vnd.ptc.pvz","modelUrl":"enginePistonAssy4pviSeq_Med.pvz"}]},"Figure1.seq_1":{"resources":[{"composition":"partset","sceneName":"Figure1","mimeType":"application/vnd.ptc.pvz","modelUrl":"enginePistonAssy4pviSeq_Med.pvz"}]},"Figure4.seq_4":{"resources":[{"composition":"partset","sceneName":"Figure4","mimeType":"application/vnd.ptc.pvz","modelUrl":"enginePistonAssy4pviSeq_Med.pvz"}]}}}},"title":{"resources":[{"mimeType":"text/plain","text":"EngBlock-4pistons - lowPoly"}]},"steps":[{"acknowledgement":{"type":"Confirmation"},"id":"278b8cff-e8a4-4bcc-8fce-d6eacc9550de","title":{"resources":[{"mimeType":"text/plain","text":"This is the first step, it should be a scan of the Work Order."}]},"actions":[{"instructions":{"resources":[{"mimeType":"text/plain","text":"This is the first step, it should be a scan of the Work Order."}]},"details":{"hint":{"instructions":{"resources":[{"mimeType":"text/plain","text":"Scan Work Order"}]}},"maxCaptures":"","ID":"WorkOrderNumber","type":"CaptureString","title":{"resources":[{"mimeType":"text/plain","text":"Work Order Scan"}]},"required":false},"id":"96eab4e9-5bd9-4d44-a865-88a55aae840a","actiontitle":"WorkOrderNumber","type":"Verify"}]},{"acknowledgement":{"type":"Confirmation"},"id":"87b55881-03c1-4678-97f0-fdd5ee85f2b6","title":{"resources":[{"mimeType":"text/plain","text":"Assemble Piston #1"}]},"actions":[{"instructions":{"resources":[{"mimeType":"text/plain","text":"Assemble the piston and record piston number."}]},"references":[{"resources":[{"id":"c9452bfc-6cda-44bb-8378-b3c42e8e7038","mimeType":"image/png","url":"piston19727.png"}],"id":"c9452bfc-6cda-44bb-8378-b3c42e8e7038"}],"subjects":[{"assetId":"Figure1.seq_1","contextId":"mycontext"}],"extras":{"resources":[{"mimeType":"ext.ptc.plm24ar.Visual"}]},"details":{"regex":"^(10|[1-9])$","hint":{"instructions":{"resources":[{"mimeType":"text/plain","text":"Enter Number from 1 to 10"}]}},"maxCaptures":"","ID":"PetersField","type":"CaptureString","title":{"resources":[{"mimeType":"text/plain","text":"Value from 1 to 10"}]},"required":false},"id":"14d7f816-c2ff-4e5a-b834-5cb9b87f8201","actiontitle":"Assemble piston #1","type":"Assemble"}]},{"acknowledgement":{"type":"Confirmation"},"id":"5ce7befd-19aa-4951-93ba-92b32e88eefb","title":{"resources":[{"mimeType":"text/plain","text":"Assemble Piston #2"}]},"actions":[{"instructions":{"resources":[{"mimeType":"text/plain","text":"Assemble the piston and record piston number."}]},"references":[{"resources":[{"id":"742fb61e-ae4c-4a1c-b3ed-16ba2a7b0c37","mimeType":"image/png","url":"piston21241.png"}],"id":"742fb61e-ae4c-4a1c-b3ed-16ba2a7b0c37"}],"subjects":[{"assetId":"Figure2.seq_2","contextId":"mycontext"}],"extras":{"resources":[{"mimeType":"ext.ptc.plm24ar.Visual"}]},"details":{"regex":"^(10|[1-9])$","hint":{"instructions":{"resources":[{"mimeType":"text/plain","text":"Enter Number from 1 to 10"}]}},"maxCaptures":"","ID":"PetersField","type":"CaptureString","title":{"resources":[{"mimeType":"text/plain","text":"Value from 1 to 10"}]},"required":false},"id":"a5b160e0-c4ef-461f-a0fc-d469f74570ec","actiontitle":"Assemble piston #2","type":"Assemble"}]},{"acknowledgement":{"type":"Confirmation"},"id":"d2bd7fb9-d8cc-4692-b758-96da819187a8","title":{"resources":[{"mimeType":"text/plain","text":"Assemble Piston #3"}]},"actions":[{"instructions":{"resources":[{"mimeType":"text/plain","text":"Assemble the piston and record piston number."}]},"references":[{"resources":[{"id":"32cb61c8-af76-4f1c-94f1-ebdc7b42e9eb","mimeType":"image/png","url":"piston39382.png"}],"id":"32cb61c8-af76-4f1c-94f1-ebdc7b42e9eb"}],"subjects":[{"assetId":"Figure3.seq_3","contextId":"mycontext"}],"extras":{"resources":[{"mimeType":"ext.ptc.plm24ar.Visual"}]},"details":{"regex":"^(10|[1-9])$","hint":{"instructions":{"resources":[{"mimeType":"text/plain","text":"Enter Number from 1 to 10"}]}},"maxCaptures":"","ID":"PetersField","type":"CaptureString","title":{"resources":[{"mimeType":"text/plain","text":"Value from 1 to 10"}]},"required":false},"id":"e34de1c9-fe50-461d-ab50-1b69f0267df3","actiontitle":"Assemble piston #3","type":"Assemble"}]},{"acknowledgement":{"type":"Confirmation"},"id":"1d1d31ee-1148-4c37-ac9f-891fdbcca761","title":{"resources":[{"mimeType":"text/plain","text":"Assemble Piston #4"}]},"actions":[{"instructions":{"resources":[{"mimeType":"text/plain","text":"Assemble the piston and record piston number."}]},"references":[{"resources":[{"id":"37d483f5-8941-44b3-9abd-513e5ab8959d","mimeType":"image/png","url":"piston49622.png"}],"id":"37d483f5-8941-44b3-9abd-513e5ab8959d"}],"subjects":[{"assetId":"Figure4.seq_4","contextId":"mycontext"}],"extras":{"resources":[{"mimeType":"ext.ptc.plm24ar.Visual"}]},"details":{"regex":"^(10|[1-9])$","hint":{"instructions":{"resources":[{"mimeType":"text/plain","text":"Enter Number from 1 to 10"}]}},"maxCaptures":"","ID":"PetersField","type":"CaptureString","title":{"resources":[{"mimeType":"text/plain","text":"Value from 1 to 10"}]},"required":false},"id":"9e1c340f-1786-463e-810a-796f4572c03b","actiontitle":"Assemble piston #4","type":"Assemble"}]}],"orgId":"80d2567c-d0b2-4b72-8bc6-e021f579485a","versionDisplayName":1,"versionId":1,"id":"3b2017bf-c826-4ddd-9fca-cfeefed3b4b2","introduction":{"resources":[{"mimeType":"text/plain","text":"EngBlock-4pistonsSTW ... description"}]}}
+{
+    "thumbnail": "engine4PistonsThumbnail.png",
+    "publishDate": "2024-08-01T20:37:22.491Z",
+    "sxslVersion": "2.0",
+    "statements": [
+        {
+            "stepId": "278b8cff-e8a4-4bcc-8fce-d6eacc9550de",
+            "type": "Step"
+        },
+        {
+            "stepId": "87b55881-03c1-4678-97f0-fdd5ee85f2b6",
+            "type": "Step"
+        },
+        {
+            "stepId": "5ce7befd-19aa-4951-93ba-92b32e88eefb",
+            "type": "Step"
+        },
+        {
+            "stepId": "d2bd7fb9-d8cc-4692-b758-96da819187a8",
+            "type": "Step"
+        },
+        {
+            "stepId": "1d1d31ee-1148-4c37-ac9f-891fdbcca761",
+            "type": "Step"
+        }
+    ],
+    "procName": "Procedure_LQJ1RlZL",
+    "contexts": {
+        "mycontext": {
+            "models": [
+                {
+                    "mimeType": "model/pvz",
+                    "url": "enginePistonAssy4pviSeq_Med.pvz",
+                    "tags": [
+                        "occlusion",
+                        "full"
+                    ]
+                }
+            ],
+            "trackers": [
+                {
+                    "mimeType": "application/vnd.ptc.tracker.modeltracker",
+                    "content": {
+                        "targetName": "engineblockwpistons",
+                        "guideView": {
+                            "mimeType": "image/png",
+                            "lang": "en-US",
+                            "url": "p_GuideView_0000_2.png"
+                        },
+                        "dataset": {
+                            "xml": "engineblockwpistons.xml",
+                            "dat": "engineblockwpistons.dat"
+                        }
+                    }
+                }
+            ],
+            "assets": {
+                "Figure2.seq_2": {
+                    "resources": [
+                        {
+                            "composition": "partset",
+                            "sceneName": "Figure2",
+                            "mimeType": "application/vnd.ptc.pvz",
+                            "modelUrl": "enginePistonAssy4pviSeq_Med.pvz"
+                        }
+                    ]
+                },
+                "Figure3.seq_3": {
+                    "resources": [
+                        {
+                            "composition": "partset",
+                            "sceneName": "Figure3",
+                            "mimeType": "application/vnd.ptc.pvz",
+                            "modelUrl": "enginePistonAssy4pviSeq_Med.pvz"
+                        }
+                    ]
+                },
+                "Figure1.seq_1": {
+                    "resources": [
+                        {
+                            "composition": "partset",
+                            "sceneName": "Figure1",
+                            "mimeType": "application/vnd.ptc.pvz",
+                            "modelUrl": "enginePistonAssy4pviSeq_Med.pvz"
+                        }
+                    ]
+                },
+                "Figure4.seq_4": {
+                    "resources": [
+                        {
+                            "composition": "partset",
+                            "sceneName": "Figure4",
+                            "mimeType": "application/vnd.ptc.pvz",
+                            "modelUrl": "enginePistonAssy4pviSeq_Med.pvz"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "title": {
+        "resources": [
+            {
+                "mimeType": "text/plain",
+                "text": "EngBlock-4pistons - lowPoly"
+            }
+        ]
+    },
+    "steps": [
+        {
+            "acknowledgement": {
+                "type": "Confirmation"
+            },
+            "id": "278b8cff-e8a4-4bcc-8fce-d6eacc9550de",
+            "title": {
+                "resources": [
+                    {
+                        "mimeType": "text/plain",
+                        "text": "This is the first step, it should be a scan of the Work Order."
+                    }
+                ]
+            },
+            "actions": [
+                {
+                    "instructions": {
+                        "resources": [
+                            {
+                                "mimeType": "text/plain",
+                                "text": "This is the first step, it should be a scan of the Work Order."
+                            }
+                        ]
+                    },
+                    "details": {
+                        "hint": {
+                            "instructions": {
+                                "resources": [
+                                    {
+                                        "mimeType": "text/plain",
+                                        "text": "Scan Work Order"
+                                    }
+                                ]
+                            }
+                        },
+                        "maxCaptures": "",
+                        "ID": "WorkOrderNumber",
+                        "type": "CaptureString",
+                        "title": {
+                            "resources": [
+                                {
+                                    "mimeType": "text/plain",
+                                    "text": "Work Order Scan"
+                                }
+                            ]
+                        },
+                        "required": false
+                    },
+                    "id": "96eab4e9-5bd9-4d44-a865-88a55aae840a",
+                    "actiontitle": "WorkOrderNumber",
+                    "type": "Verify"
+                }
+            ]
+        },
+        {
+            "acknowledgement": {
+                "type": "Confirmation"
+            },
+            "id": "87b55881-03c1-4678-97f0-fdd5ee85f2b6",
+            "title": {
+                "resources": [
+                    {
+                        "mimeType": "text/plain",
+                        "text": "Assemble Piston #1"
+                    }
+                ]
+            },
+            "actions": [
+                {
+                    "instructions": {
+                        "resources": [
+                            {
+                                "mimeType": "text/plain",
+                                "text": "Assemble the piston and record piston number."
+                            }
+                        ]
+                    },
+                    "references": [
+                        {
+                            "resources": [
+                                {
+                                    "id": "c9452bfc-6cda-44bb-8378-b3c42e8e7038",
+                                    "mimeType": "image/png",
+                                    "url": "piston19727.png"
+                                }
+                            ],
+                            "id": "c9452bfc-6cda-44bb-8378-b3c42e8e7038"
+                        }
+                    ],
+                    "subjects": [
+                        {
+                            "assetId": "Figure1.seq_1",
+                            "contextId": "mycontext"
+                        }
+                    ],
+                    "extras": {
+                        "resources": [
+                            {
+                                "mimeType": "ext.ptc.plm24ar.Visual"
+                            }
+                        ]
+                    },
+                    "details": {
+                        "regex": "^(10|[1-9])$",
+                        "hint": {
+                            "instructions": {
+                                "resources": [
+                                    {
+                                        "mimeType": "text/plain",
+                                        "text": "Enter Number from 1 to 10"
+                                    }
+                                ]
+                            }
+                        },
+                        "maxCaptures": "",
+                        "ID": "PetersField",
+                        "type": "CaptureString",
+                        "title": {
+                            "resources": [
+                                {
+                                    "mimeType": "text/plain",
+                                    "text": "Value from 1 to 10"
+                                }
+                            ]
+                        },
+                        "required": false
+                    },
+                    "id": "14d7f816-c2ff-4e5a-b834-5cb9b87f8201",
+                    "actiontitle": "Assemble piston #1",
+                    "type": "Assemble"
+                }
+            ]
+        },
+        {
+            "acknowledgement": {
+                "type": "Confirmation"
+            },
+            "id": "5ce7befd-19aa-4951-93ba-92b32e88eefb",
+            "title": {
+                "resources": [
+                    {
+                        "mimeType": "text/plain",
+                        "text": "Assemble Piston #2"
+                    }
+                ]
+            },
+            "actions": [
+                {
+                    "instructions": {
+                        "resources": [
+                            {
+                                "mimeType": "text/plain",
+                                "text": "Assemble the piston and record piston number."
+                            }
+                        ]
+                    },
+                    "references": [
+                        {
+                            "resources": [
+                                {
+                                    "id": "742fb61e-ae4c-4a1c-b3ed-16ba2a7b0c37",
+                                    "mimeType": "image/png",
+                                    "url": "piston21241.png"
+                                }
+                            ],
+                            "id": "742fb61e-ae4c-4a1c-b3ed-16ba2a7b0c37"
+                        }
+                    ],
+                    "subjects": [
+                        {
+                            "assetId": "Figure2.seq_2",
+                            "contextId": "mycontext"
+                        }
+                    ],
+                    "extras": {
+                        "resources": [
+                            {
+                                "mimeType": "ext.ptc.plm24ar.Visual"
+                            }
+                        ]
+                    },
+                    "details": {
+                        "regex": "^(10|[1-9])$",
+                        "hint": {
+                            "instructions": {
+                                "resources": [
+                                    {
+                                        "mimeType": "text/plain",
+                                        "text": "Enter Number from 1 to 10"
+                                    }
+                                ]
+                            }
+                        },
+                        "maxCaptures": "",
+                        "ID": "PetersField",
+                        "type": "CaptureString",
+                        "title": {
+                            "resources": [
+                                {
+                                    "mimeType": "text/plain",
+                                    "text": "Value from 1 to 10"
+                                }
+                            ]
+                        },
+                        "required": false
+                    },
+                    "id": "a5b160e0-c4ef-461f-a0fc-d469f74570ec",
+                    "actiontitle": "Assemble piston #2",
+                    "type": "Assemble"
+                }
+            ]
+        },
+        {
+            "acknowledgement": {
+                "type": "Confirmation"
+            },
+            "id": "d2bd7fb9-d8cc-4692-b758-96da819187a8",
+            "title": {
+                "resources": [
+                    {
+                        "mimeType": "text/plain",
+                        "text": "Assemble Piston #3"
+                    }
+                ]
+            },
+            "actions": [
+                {
+                    "instructions": {
+                        "resources": [
+                            {
+                                "mimeType": "text/plain",
+                                "text": "Assemble the piston and record piston number."
+                            }
+                        ]
+                    },
+                    "references": [
+                        {
+                            "resources": [
+                                {
+                                    "id": "32cb61c8-af76-4f1c-94f1-ebdc7b42e9eb",
+                                    "mimeType": "image/png",
+                                    "url": "piston39382.png"
+                                }
+                            ],
+                            "id": "32cb61c8-af76-4f1c-94f1-ebdc7b42e9eb"
+                        }
+                    ],
+                    "subjects": [
+                        {
+                            "assetId": "Figure3.seq_3",
+                            "contextId": "mycontext"
+                        }
+                    ],
+                    "extras": {
+                        "resources": [
+                            {
+                                "mimeType": "ext.ptc.plm24ar.Visual"
+                            }
+                        ]
+                    },
+                    "details": {
+                        "regex": "^(10|[1-9])$",
+                        "hint": {
+                            "instructions": {
+                                "resources": [
+                                    {
+                                        "mimeType": "text/plain",
+                                        "text": "Enter Number from 1 to 10"
+                                    }
+                                ]
+                            }
+                        },
+                        "maxCaptures": "",
+                        "ID": "PetersField",
+                        "type": "CaptureString",
+                        "title": {
+                            "resources": [
+                                {
+                                    "mimeType": "text/plain",
+                                    "text": "Value from 1 to 10"
+                                }
+                            ]
+                        },
+                        "required": false
+                    },
+                    "id": "e34de1c9-fe50-461d-ab50-1b69f0267df3",
+                    "actiontitle": "Assemble piston #3",
+                    "type": "Assemble"
+                }
+            ]
+        },
+        {
+            "acknowledgement": {
+                "type": "Confirmation"
+            },
+            "id": "1d1d31ee-1148-4c37-ac9f-891fdbcca761",
+            "title": {
+                "resources": [
+                    {
+                        "mimeType": "text/plain",
+                        "text": "Assemble Piston #4"
+                    }
+                ]
+            },
+            "actions": [
+                {
+                    "instructions": {
+                        "resources": [
+                            {
+                                "mimeType": "text/plain",
+                                "text": "Assemble the piston and record piston number."
+                            }
+                        ]
+                    },
+                    "references": [
+                        {
+                            "resources": [
+                                {
+                                    "id": "37d483f5-8941-44b3-9abd-513e5ab8959d",
+                                    "mimeType": "image/png",
+                                    "url": "piston49622.png"
+                                }
+                            ],
+                            "id": "37d483f5-8941-44b3-9abd-513e5ab8959d"
+                        }
+                    ],
+                    "subjects": [
+                        {
+                            "assetId": "Figure4.seq_4",
+                            "contextId": "mycontext"
+                        }
+                    ],
+                    "extras": {
+                        "resources": [
+                            {
+                                "mimeType": "ext.ptc.plm24ar.Visual"
+                            }
+                        ]
+                    },
+                    "details": {
+                        "regex": "^(10|[1-9])$",
+                        "hint": {
+                            "instructions": {
+                                "resources": [
+                                    {
+                                        "mimeType": "text/plain",
+                                        "text": "Enter Number from 1 to 10"
+                                    }
+                                ]
+                            }
+                        },
+                        "maxCaptures": "",
+                        "ID": "PetersField",
+                        "type": "CaptureString",
+                        "title": {
+                            "resources": [
+                                {
+                                    "mimeType": "text/plain",
+                                    "text": "Value from 1 to 10"
+                                }
+                            ]
+                        },
+                        "required": false
+                    },
+                    "id": "9e1c340f-1786-463e-810a-796f4572c03b",
+                    "actiontitle": "Assemble piston #4",
+                    "type": "Assemble"
+                }
+            ]
+        }
+    ],
+    "orgId": "80d2567c-d0b2-4b72-8bc6-e021f579485a",
+    "versionDisplayName": 1,
+    "versionId": 1,
+    "id": "3b2017bf-c826-4ddd-9fca-cfeefed3b4b2",
+    "introduction": {
+        "resources": [
+            {
+                "mimeType": "text/plain",
+                "text": "EngBlock-4pistonsSTW ... description"
+            }
+        ]
+    }
+}

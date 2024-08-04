@@ -30,15 +30,16 @@ showIssue = function (message, systemMessage) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 $scope.showHideSteps = function () {
-  
+  let x = $scope.view.wdg['sxslPlayer-1']['steplist'];
+  $scope.view.wdg['repeater-1'].data = x;  
   let state = $scope.getWidgetProp("popupSteps" , "visible");
   if (state === true) {
     $scope.setWidgetProp("popupSteps" , "visible" , false);
   } else {
     $scope.setWidgetProp("popupSteps" , "visible", true);
   }
-  
 }
+ 
 
 $scope.toggleInfo = function () {
   

@@ -75,7 +75,7 @@
       }
     },
     {
-      "timestamp": "2024-08-03T16:37:15.459Z",
+      "timestamp": "2024-08-04T16:12:20.601Z",
       "action": "LATEST_SAVE",
       "usage": {
         "twx-view": 2,
@@ -85,15 +85,16 @@
         "twx-overlay-container": 5,
         "twx-gridlayout": 10,
         "twx-row": 51,
-        "twx-col": 76,
-        "twx-image2": 11,
-        "twx-overlay-body": 1,
+        "twx-col": 75,
+        "twx-image2": 12,
         "twx-popup": 7,
         "twx-label": 37,
+        "twx-overlay-body": 1,
         "twx-button": 8,
         "twx-repeater": 1,
-        "twx-text-input": 1,
-        "twx-barcode-scanner": 1
+        "twx-data-grid": 1,
+        "twx-barcode-scanner": 1,
+        "twx-text-input": 1
       }
     }
   ],

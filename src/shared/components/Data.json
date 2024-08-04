@@ -122,6 +122,16 @@
         "value": "true"
       },
       "name": "twx-app-param"
+    },
+    {
+      "attributes": {
+        "id": "stepliststatus",
+        "isbound": "false",
+        "isdeletable": "true",
+        "name": "stepliststatus",
+        "value": ""
+      },
+      "name": "twx-app-param"
     }
   ],
   "name": "twx-app-mdl"
